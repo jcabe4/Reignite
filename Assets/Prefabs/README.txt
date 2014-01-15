@@ -1,0 +1,1 @@
+Prefabs for all objects will be located here.  If there are specific categories that the prefabs fall into, please create a folder (For example, environment prefabs would have a folder labeled "Environment").
