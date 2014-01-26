@@ -8,13 +8,13 @@ public class spinCube : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		obj = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Transform> ();
+		obj = GameObject.FindGameObjectWithTag ("Cube").GetComponent<Transform> ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		newRotation.Set (transform.rotation.x + 10f, transform.rotation.y + 10f, 0f);
+		newRotation.Set (obj.rotation.x + 5f, obj.rotation.y + 5f, 0f);
 		obj.Rotate (newRotation);
 	}
 }
