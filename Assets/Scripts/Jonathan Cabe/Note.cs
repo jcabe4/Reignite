@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 [System.Serializable]
 public class Note 
 {
-	public enum NoteColor {None, Blue, Green, Red, Yellow,
+	public enum NoteColor {Pause, Blue, Green, Red, Yellow,
 							BlueGreen, BlueRed, BlueYellow,
 							GreenRed, GreenYellow, RedYellow};
 

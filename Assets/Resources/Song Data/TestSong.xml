@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
 	<Body>
+		<LengthRatio>1</LengthRatio>
 		<Note>
-			<Color>0</Color>
+			<Color>5</Color>
 			<StartTotal>0</StartTotal>
 			<EndTotal>0</EndTotal>
 			<NoteDuration>0</NoteDuration>
