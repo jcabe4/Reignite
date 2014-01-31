@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<Body>
+		<Note>
+			<Color>0</Color>
+			<StartTotal>0</StartTotal>
+			<EndTotal>0</EndTotal>
+			<NoteDuration>0</NoteDuration>
+			<PitchPosition>0</PitchPosition>
+			<StartTime>
+				<Minutes>0</Minutes>
+				<Seconds>0</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>0</Minutes>
+				<Seconds>0</Seconds>
+			</EndTime>
+		</Note>
+	</Body>
+</Root>
