@@ -60,7 +60,7 @@ public class MusicSheetBuilder : EditorWindow
 			EditorGUILayout.EndHorizontal();
 
 			GUILayout.Label("Relative Second To Screen Size Ratio", EditorStyles.boldLabel);
-			lengthRatio = EditorGUILayout.Slider(lengthRatio, .001f, 2f);
+			lengthRatio = EditorGUILayout.Slider(lengthRatio, .001f, 10f);
 
 			EditorGUILayout.Space();
 
@@ -193,6 +193,7 @@ public class MusicSheetBuilder : EditorWindow
 		if (!File.Exists(savePath))
 		{
 			Debug.Log(songName + ".xml Not Found @ " + savePath);
+			return;
 		}
 		else
 		{
@@ -250,13 +251,10 @@ public class MusicSheetBuilder : EditorWindow
 					}
 					case "StartTime":
 					{
-						Debug.Log("In " + reader.Name);
 						Vector2 time = new Vector2();
 						reader.ReadToDescendant("Minutes");
-						Debug.Log("In " + reader.Name);
 						time.x = float.Parse(reader.ReadElementContentAsString());
 						reader.ReadToNextSibling("Seconds");
-						Debug.Log("In " + reader.Name);
 						time.y = float.Parse(reader.ReadElementContentAsString());
 
 						notes[setIndex].startTime = time;
