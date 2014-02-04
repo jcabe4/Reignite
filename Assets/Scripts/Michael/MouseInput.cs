@@ -6,8 +6,9 @@ public class MouseInput : MonoBehaviour
 	public Vector3 futurePosition;
 	public float moveSpeed = .075f;
 
-	RaycastHit hit;
 	Ray towards;
+
+	private LayerMask ignoreMask = ~(1 << 2);
 
 	void Start() 
 	{
@@ -27,29 +28,32 @@ public class MouseInput : MonoBehaviour
 			futurePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			futurePosition.z = transform.position.z;
 		}
-		
-		if(Physics.Raycast(towards, out hit, 20))
+
+		RaycastHit[] hits = Physics.RaycastAll(towards, Mathf.Infinity, ignoreMask);
+		if(hits.Length > 0)
 		{
-			if(hit.collider.gameObject.tag == "Object")
+			for(int count = 0; count < hits.Length; count++)
 			{
-				if(hit.collider.bounds.Contains(transform.collider.bounds.center))
+				// Object has HIGHEST precedence. Interacting with objects comes before colliding with them.
+				if(hits[count].collider.gameObject.tag == "Object")
 				{
-					if(Input.GetMouseButtonDown(0))
-					{
-						hit.collider.audio.Play();
-						Debug.Log ("you interacted with me!");
-					}
+					// Object Interaction
 				}
-				else
+
+				// Since we are raycasting through everything, if we find an obstacle anywhere, we
+				// don't want to move through it.
+				if(hits[count].collider.gameObject.tag == "Obstacle")
+				{
+					futurePosition = transform.position;
+				}
+
+				// But if we don't find one, we should be able to move towards where we wanted to go.
+				else if(hits[count].collider.gameObject.tag == "Environment")
 				{
 					transform.position = Vector3.MoveTowards(transform.position, futurePosition, moveSpeed);
 				}
 			}
 
-			else if(hit.collider.gameObject.tag != "Obstacle")
-			{
-				transform.position = Vector3.MoveTowards(transform.position, futurePosition, moveSpeed);
-			}
 		}
 	}
 }
