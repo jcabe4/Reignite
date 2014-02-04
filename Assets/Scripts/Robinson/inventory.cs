@@ -3,9 +3,10 @@ using System.Collections;
 
 //This is a sample inventory script based on Unity Stealth tutorial.
 
-public class inventory : MonoBehaviour {
-
-	public bool haskey;  //Does player have a key?
+public class Inventory : MonoBehaviour 
+{
+	public bool hasKey;  //Does player have a key?
+	public bool hasBook;
 }
 
 //This script needs to be applied to the players via drag and drop.
