@@ -1,16 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-<<<<<<< HEAD
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\JCTools\MusicSheetBuilder.cs">
     <Files>
-      <File FileName="Assets\Scripts\Jonathan Cabe\Note.cs" Line="11" Column="21" />
-      <File FileName="Assets\Editor\JCTools\MusicSheetBuilder.cs" Line="194" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Michael\KeyboardInput.cs">
-    <Files>
-      <File FileName="Assets\Scripts\Michael\KeyboardInput.cs" Line="60" Column="3" />
-      <File FileName="Assets\Scripts\Michael\MouseInput.cs" Line="38" Column="6" />
->>>>>>> origin/Michael-Swedo
+      <File FileName="Assets\Editor\JCTools\MusicSheetBuilder.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
