@@ -15,13 +15,14 @@ public class KeyboardInput : MonoBehaviour
 
 	void HandleKeyboard()
 	{
-		if(Input.GetButton ("Inventory"))
+		if(Input.GetButtonDown("Inventory"))
 		{
-			// open Inventory menu;
+			Debug.Log("Make me open the inventory!");
 		}
-		else if(Input.GetButton ("Menu"))
+
+		if(Input.GetButtonDown("Menu"))
 		{
-			// open main menu;
+			Debug.Log ("Make me open the menu!");
 		}
 	}
 }
