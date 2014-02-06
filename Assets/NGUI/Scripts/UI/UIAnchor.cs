@@ -58,7 +58,7 @@ public class UIAnchor : MonoBehaviour
 	/// Screen size changes will still cause the anchor to update itself, even if it's disabled.
 	/// </summary>
 
-	public bool runOnlyOnce = true;
+	public bool runOnlyOnce = false;
 
 	/// <summary>
 	/// Relative offset value, if any. For example "0.25" with 'side' set to Left, means 25% from the left side.
