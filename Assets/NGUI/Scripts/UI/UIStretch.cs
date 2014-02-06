@@ -48,7 +48,7 @@ public class UIStretch : MonoBehaviour
 	/// Screen size changes will still cause the script's logic to execute.
 	/// </summary>
 
-	public bool runOnlyOnce = true;
+	public bool runOnlyOnce = false;
 
 	/// <summary>
 	/// Relative-to-target size.
