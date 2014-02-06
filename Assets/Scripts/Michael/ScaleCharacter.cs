@@ -8,9 +8,11 @@ public class ScaleCharacter : MonoBehaviour
 	Vector3 currentPosition;
 	Vector3 currentScale;
 
-	public Vector3 minScale = new Vector3 (.7f, .7f, 1.0f);
-	public Vector3 maxScale = new Vector3 (1.2f, 1.2f, 1.0f);
-	public float scaleModifier = .000001f;
+	int frameCount;
+
+	public Vector3 minScale = new Vector3 (.9f, .9f, 1.0f);
+	public Vector3 maxScale = new Vector3 (1.1f, 1.1f, 1.0f);
+	public float scaleModifier = .05f;
 
 	void Start () 
 	{
@@ -19,24 +21,32 @@ public class ScaleCharacter : MonoBehaviour
 
 		currentPosition = startPosition;
 		currentScale = startScale;
+
+		frameCount = 0;
 	}
 	
 	void Update() 
 	{
 		currentPosition = transform.position;
-		
-		if(currentPosition.y < startPosition.y && currentScale.x <= maxScale.x && currentScale.y <= maxScale.y)
+
+		if(frameCount >= 2)
 		{
-			currentScale.x += scaleModifier;
-			currentScale.y += scaleModifier;
-			
-			transform.localScale = currentScale;
+			if(currentPosition.y < startPosition.y && currentScale.x <= maxScale.x && currentScale.y <= maxScale.y)
+			{
+				currentScale.x += scaleModifier;
+				currentScale.y += scaleModifier;
+				
+				transform.localScale = currentScale;
+			}
+			else if(currentPosition.y > startPosition.y && currentScale.x >= minScale.x && currentScale.y >= minScale.y)
+			{
+				currentScale.x -= scaleModifier;
+				currentScale.y -= scaleModifier;
+				transform.localScale = currentScale;
+			}
+			frameCount = 0;
 		}
-		else if(currentPosition.y >= startPosition.y && currentScale.x >= maxScale.x && currentScale.y >= maxScale.y)
-		{
-			currentScale.x -= scaleModifier;
-			currentScale.y -= scaleModifier;
-			transform.localScale = currentScale;
-		}
+
+		frameCount++;
 	}
 }

@@ -7,24 +7,24 @@ public class InventoryPickup : MonoBehaviour
 {
 	//public AudioClip pickup;  //Plays a sound when the item is picked up.
 
+	private Collider playerCollider;
 	private Inventory inventory;  //private reference to the inventory script, inventory.cs The first inventory is the name of the script, the second is the name of the reference.
+	public bool interactable = false;
 
-	private bool interactable = false;
-
-	void Awake() 
+	void Start() 
 	{
+		playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>();
 		inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();  //sets inventory reference
 	}
 
-	void OnTriggerStay(Collider other) 
+	void Update()
 	{
-		if(other.gameObject.tag == "Player")  //is the trigger being triggered by the player
+		if(collider.bounds.Contains(playerCollider.bounds.center))
 		{
 			interactable = true;
-			//AudioSource.PlayClipAtPoint(keyGrab, Transform.position);  //plays sound when key is picked up
-			//inventory.hasKey = true;  //sets the variable haskey in inventory script to true
-			//Destroy(gameObject);  //destroys the key.  Becuase this script was attached to the key itself, we can just destroy the game object being the key, otherwise, destroy the key via tag
+			//Debug.Log ("I'm interactable now!");
 		}
+		else interactable = false;
 	}
 
 	public bool IsInteractable()

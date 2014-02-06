@@ -37,7 +37,7 @@ public class MouseInput : MonoBehaviour
 				// Object has HIGHEST precedence. Interacting with objects comes before colliding with them.
 				if(hits[count].collider.gameObject.tag == "Object")
 				{
-					//Interact with object
+					// interact with object
 				}
 
 				// Since we are raycasting through everything, if we find an obstacle anywhere, we
