@@ -1,27 +1,45 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class RhythmInput : MonoBehaviour 
 {
-	public UISprite cursor;
-	public Vector3 position;
-	public float anchorPos = 0f;
+	public static Action<KeyCode> KeyPress;
 
+	public UISprite cursor;
+	public KeyCode redKey;
+	public KeyCode blueKey;
+	public KeyCode greenKey;
+	public KeyCode yellowKey;
+	public KeyCode options;
+
+	private int keys;
+	private float anchorPos = 0f;
+	private bool bCursorAbove = false;
+
+	private Ray ray;
+	private Vector3 position;
+	private RaycastHit[] hit;
 	private UIAnchor cursorPos;
 
 	void Start()
 	{
 		cursorPos = cursor.GetComponent<UIAnchor> ();
+		keys = System.Enum.GetNames(typeof(KeyCode)).Length;
 	}
 
 	void Update()
 	{
+		if (Input.anyKeyDown)
+		{
+			KeyPressed();
+		}
+
 		MoveCursor ();
 	}
 
 	private void MoveCursor()
 	{
-		position = Input.mousePosition;
 		anchorPos = Input.mousePosition.y / Screen.height - 0.5f;
 
 		if (cursorPos)
@@ -38,11 +56,31 @@ public class RhythmInput : MonoBehaviour
 			{
 				cursorPos.relativeOffset.y = 0.45f;
 			}
+
+			bCursorAbove = CheckCursor();
 		}
+	}
+
+	private bool CheckCursor()
+	{
+		position = new Vector3(cursorPos.relativeOffset.x * Screen.width, (cursorPos.relativeOffset.y + .5f) * Screen.height, 0f);
+		ray = Camera.main.ScreenPointToRay (position);
+		hit = Physics.RaycastAll(ray, Mathf.Infinity);
+
+		return (hit.Length > 0);
 	}
 
 	private void KeyPressed()
 	{
-		//if (Input.ke
+		for(int i = 0; i < keys; i++)
+		{
+			if (Input.GetKey((KeyCode)i))
+			{
+				if (KeyPress != null)
+				{
+					KeyPress((KeyCode)i);
+				}
+			}
+		}
 	}
 }

@@ -7,8 +7,15 @@ public class RhythmNote : MonoBehaviour
 	
 	public UISprite bar1;
 	public UISprite bar2;
-	
+
+	private bool key1down = false;
+	private bool key2down = false;
+	private KeyCode key1 = KeyCode.Keypad0;
+	private KeyCode key2 = KeyCode.Keypad0;
+
 	private UIAnchor anchor;
+	private RhythmGame rGame;
+	private RhythmInput rInput;
 	private UIStretch barStretch1;
 	private UIStretch barStretch2;
 	private Vector2 size = new Vector2();
@@ -41,19 +48,22 @@ public class RhythmNote : MonoBehaviour
 	void OnEnable()
 	{
 		RhythmGame.Scroll += MoveNote;
+		RhythmInput.KeyPress += KeyPressed;
 	}
 	
 	void OnDisable()
 	{
 		RhythmGame.Scroll -= MoveNote;
+		RhythmInput.KeyPress -= KeyPressed;
 	}
 
 	void Update()
 	{
+		CheckKeyUp();
 		DestroySelf();
 	}
-	
-	public void Init(UIAnchor pos, Note.NoteColor newColor, float width)
+
+	public void Init(UIAnchor pos, Note.NoteColor newColor, float width, GameObject gameObj)
 	{
 		Start();
 		
@@ -61,6 +71,9 @@ public class RhythmNote : MonoBehaviour
 		anchor.relativeOffset.x = pos.relativeOffset.x;
 		anchor.relativeOffset.y = pos.relativeOffset.y;
 		
+		rGame = gameObj.GetComponent<RhythmGame>();
+		rInput = gameObj.GetComponent<RhythmInput>();
+
 		SetColor();
 		SetWidth(width);
 	}
@@ -82,26 +95,32 @@ public class RhythmNote : MonoBehaviour
 		case Note.NoteColor.Blue:
 		{
 			bar1.color = blue;
+			key1 = rInput.blueKey;
 			break;
 		}
 		case Note.NoteColor.Green:
 		{
 			bar1.color = green;
+			key1 = rInput.greenKey;
 			break;
 		}
 		case Note.NoteColor.Red:
 		{
 			bar1.color = red;
+			key1 = rInput.redKey;
 			break;
 		}
 		case Note.NoteColor.Yellow:
 		{
 			bar1.color = yellow;
+			key1 = rInput.yellowKey;
 			break;
 		}
 		case Note.NoteColor.BlueGreen:
 		{
 			bar1.color = blue;
+			key1 = rInput.blueKey;
+			key2 = rInput.greenKey;
 			
 			if (bar2)
 				bar2.color = green;
@@ -111,6 +130,8 @@ public class RhythmNote : MonoBehaviour
 		case Note.NoteColor.BlueRed:
 		{
 			bar1.color = blue;
+			key1 = rInput.blueKey;
+			key2 = rInput.redKey;
 			
 			if (bar2)
 				bar2.color = red;
@@ -120,6 +141,8 @@ public class RhythmNote : MonoBehaviour
 		case Note.NoteColor.BlueYellow:
 		{
 			bar1.color = blue;
+			key1 = rInput.blueKey;
+			key2 = rInput.yellowKey;
 			
 			if (bar2)
 				bar2.color = yellow;
@@ -129,6 +152,8 @@ public class RhythmNote : MonoBehaviour
 		case Note.NoteColor.GreenRed:
 		{
 			bar1.color = green;
+			key1 = rInput.greenKey;
+			key2 = rInput.redKey;
 			
 			if (bar2)
 				bar2.color = red;
@@ -138,6 +163,8 @@ public class RhythmNote : MonoBehaviour
 		case Note.NoteColor.GreenYellow:
 		{
 			bar1.color = green;
+			key1 = rInput.greenKey;
+			key2 = rInput.yellowKey;
 			
 			if (bar2)
 				bar2.color = yellow;
@@ -147,6 +174,8 @@ public class RhythmNote : MonoBehaviour
 		case Note.NoteColor.RedYellow:
 		{
 			bar1.color = red;
+			key1 = rInput.redKey;
+			key2 = rInput.yellowKey;
 			
 			if (bar2)
 				bar2.color = yellow;
@@ -184,10 +213,37 @@ public class RhythmNote : MonoBehaviour
 
 	private void DestroySelf()
 	{
-		if (anchor.relativeOffset.x < -1.5f)
+		if (anchor.relativeOffset.x < -4f)
 		{
 			RhythmGame.Scroll -= MoveNote;
 			Destroy(gameObject);
+		}
+	}
+	
+	private void CheckKeyUp()
+	{
+		if (key1down && Input.GetKeyUp(key1))
+		{
+			Debug.Log(key1);
+			key1down = false;
+		}
+		
+		if (key2down && Input.GetKeyUp(key2))
+		{
+			Debug.Log(key2);
+			key2down = false;
+		}
+	}
+
+	private void KeyPressed(KeyCode key)
+	{
+		if (key == key1)
+		{
+			key1down = true;
+		}
+		else if (key == key2)
+		{
+			key2down = true;
 		}
 	}
 }
