@@ -36,11 +36,14 @@ public class RhythmGame : MonoBehaviour
 	private float totalNoteTime = 0f;
 	
 	private string path;
+	private Note currentNote;
+	private RhythmInput rInput;
 	private AudioSource musicSource;
 	private List<Note> notes = new List<Note>();
 	
 	void Start()
 	{
+		rInput = gameObject.GetComponent<RhythmInput>();
 		musicSource = gameObject.GetComponent<AudioSource>();
 		
 		LoadSong(song);
@@ -68,6 +71,27 @@ public class RhythmGame : MonoBehaviour
 		if (songProgressBar && timeLapsed < totalNoteTime)
 		{
 			songProgressBar.value = (timeLapsed / totalNoteTime);
+		}
+	}
+
+	public void AddScore(Note.NoteColor inColor)
+	{
+		//!currentNote || 
+		if (currentNote.endTotal < timeLapsed)
+		{
+			for (int i = 0; i < notes.Count; i++)
+			{
+				if (notes[i].startTotal < timeLapsed && notes[i].endTotal > timeLapsed)
+				{
+					currentNote = notes[i];
+					break;
+				}
+			}
+		}
+
+		if (currentNote.color == inColor)
+		{
+			Debug.Log("ADD SCORE");
 		}
 	}
 	
@@ -215,7 +239,7 @@ public class RhythmGame : MonoBehaviour
 					newNote.name = notesSpawned.ToString() + ": Note (" + notes[noteIndex].color.ToString() + ")";
 					
 					rNote = newNote.GetComponent<RhythmNote>();
-					rNote.Init(pos, color, noteWidth);
+					rNote.Init(pos, color, noteWidth, gameObject);
 					notesSpawned++;
 					break;
 				}
@@ -227,7 +251,7 @@ public class RhythmGame : MonoBehaviour
 					newNote.name = notesSpawned.ToString() + ": Note (" + notes[noteIndex].color.ToString() + ")";
 					
 					rNote = newNote.GetComponent<RhythmNote>();
-					rNote.Init(pos, color, noteWidth);
+					rNote.Init(pos, color, noteWidth, gameObject);
 					notesSpawned++;
 					break;
 				}
