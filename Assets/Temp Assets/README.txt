@@ -1,1 +1,0 @@
-This folder is used for any placeholder assets that we may use.  By the end of this project, this folder should not have any assets that are being used and should be deleted.
