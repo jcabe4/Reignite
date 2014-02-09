@@ -16,15 +16,25 @@ public class RhythmInput : MonoBehaviour
 	public KeyCode greenKey;
 	public KeyCode yellowKey;
 	public KeyCode options;
+	public KeyCode confirm;
 
+	public static RhythmInput Instance
+	{
+		get
+		{
+			return instance;
+		}
+	}
 	private int keys;
 	private float anchorPos = 0f;
+	private bool bLiftUp = false;
 	private bool bCursorAbove = false;
 
 	private Ray ray;
 	private Vector3 position;
 	private RaycastHit[] hit;
 	private UIAnchor cursorPos;
+	private static RhythmInput instance;
 
 	public List<KeyCode> colorKeys = new List<KeyCode>();
 	public List<KeyCode> otherKeys = new List<KeyCode>();
@@ -33,6 +43,7 @@ public class RhythmInput : MonoBehaviour
 	{
 		cursorPos = cursor.GetComponent<UIAnchor> ();
 		keys = System.Enum.GetNames(typeof(KeyCode)).Length;
+		instance = this;
 	}
 
 	void OnEnable()
@@ -67,6 +78,8 @@ public class RhythmInput : MonoBehaviour
 			{
 				otherKeys.Clear();
 			}
+
+			bLiftUp = true;
 		}
 		
 		CheckKeyUp();
@@ -76,6 +89,11 @@ public class RhythmInput : MonoBehaviour
 	public bool CheckHover()
 	{
 		return bCursorAbove;
+	}
+
+	public bool GetLiftUp()
+	{
+		return bLiftUp;
 	}
 
 	private void MoveCursor()
@@ -151,6 +169,8 @@ public class RhythmInput : MonoBehaviour
 	{
 		if (!colorKeys.Contains(key) && (key == redKey || key == blueKey || key == greenKey || key == yellowKey))
 		{
+			bLiftUp = false;
+
 			if (colorKeys.Count < 2)
 			{
 				colorKeys.Add(key);
