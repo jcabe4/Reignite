@@ -7,10 +7,7 @@ public class ResizeCollider : MonoBehaviour
 	public enum resizeType {Horizontal, Vertical, Both};
 	public resizeType type;
 
-<<<<<<< HEAD
-=======
 	public bool doubleBar = false;
->>>>>>> Michael-Swedo
 	public UIWidget target;
 	public Vector2 relativeSize = Vector2.one;
 	private Vector2 size;
@@ -22,18 +19,11 @@ public class ResizeCollider : MonoBehaviour
 	{
 		widget = gameObject.GetComponent<UIWidget>();
 		bCollider = gameObject.GetComponent<BoxCollider>();
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> Michael-Swedo
 		if (widget)
 		{
 			if (target && (type == resizeType.Both || type == resizeType.Horizontal))
 			{
 				widget.width = target.width;
-<<<<<<< HEAD
-=======
 
 				if (doubleBar)
 				{
@@ -43,7 +33,6 @@ public class ResizeCollider : MonoBehaviour
 				{
 					widget.height = target.height;
 				}
->>>>>>> Michael-Swedo
 			}
 			if (target && (type == resizeType.Both || type == resizeType.Vertical))
 			{
