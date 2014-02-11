@@ -64,8 +64,14 @@ public class RhythmGame : MonoBehaviour
 	private bool bBeginGame = false;
 	private bool bEarnedPoints = false;
 	private bool bCanEarnPoints = true;
+<<<<<<< HEAD
 	private Color32 defaultColor = new Color32(0, 200, 255, 150);
 	
+=======
+	private Color32 defaultColor = new Color32(219, 219, 219, 150);
+	private byte beatBarAlpha = 150;
+
+>>>>>>> Michael-Swedo
 	private string path;
 	private RhythmInput rInput;
 	private UILabel modifierLabel;
@@ -355,11 +361,16 @@ public class RhythmGame : MonoBehaviour
 			if (colorPressed == Note.NoteColor.Blue || colorPressed == Note.NoteColor.BlueGreen ||
 			    colorPressed == Note.NoteColor.BlueRed || colorPressed == Note.NoteColor.BlueYellow)
 			{
+<<<<<<< HEAD
 				beatBar.color = RhythmNote.blue;
+=======
+				beatBar.color = new Color32(RhythmNote.blue.r, RhythmNote.blue.g, RhythmNote.blue.b, beatBarAlpha);
+>>>>>>> Michael-Swedo
 			}
 			else if (colorPressed == Note.NoteColor.Green || colorPressed == Note.NoteColor.GreenRed ||
 			         colorPressed == Note.NoteColor.GreenYellow)
 			{
+<<<<<<< HEAD
 				beatBar.color = RhythmNote.green;
 			}
 			else if (colorPressed == Note.NoteColor.Red || colorPressed == Note.NoteColor.RedYellow)
@@ -369,6 +380,17 @@ public class RhythmGame : MonoBehaviour
 			else if (colorPressed == Note.NoteColor.Yellow)
 			{
 				beatBar.color = RhythmNote.yellow;
+=======
+				beatBar.color = new Color32(RhythmNote.green.r, RhythmNote.green.g, RhythmNote.green.b, beatBarAlpha);
+			}
+			else if (colorPressed == Note.NoteColor.Red || colorPressed == Note.NoteColor.RedYellow)
+			{
+				beatBar.color = new Color32(RhythmNote.red.r, RhythmNote.red.g, RhythmNote.red.b, beatBarAlpha);
+			}
+			else if (colorPressed == Note.NoteColor.Yellow)
+			{
+				beatBar.color = new Color32(RhythmNote.yellow.r, RhythmNote.yellow.g, RhythmNote.yellow.b, beatBarAlpha);
+>>>>>>> Michael-Swedo
 			}
 			else if (colorPressed == Note.NoteColor.Pause)
 			{
