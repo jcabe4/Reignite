@@ -35,7 +35,7 @@ public class MouseInput : MonoBehaviour
 			for(int count = 0; count < hits.Length; count++)
 			{
 				// Object has HIGHEST precedence. Interacting with objects comes before colliding with them.
-				if(hits[count].collider.gameObject.tag == "Object")
+				if(hits[count].collider.gameObject.tag == "Interactable")
 				{
 					// interact with object
 				}
