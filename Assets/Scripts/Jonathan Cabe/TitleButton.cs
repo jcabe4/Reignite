@@ -3,6 +3,9 @@ using System.Collections;
 
 public class TitleButton : MonoBehaviour 
 {
+	public enum TButtonType {NewGame, LoadGame, Practice, Options, Exit}
+	public TButtonType type;
+
 	private UISprite sprite;
 
 	void Start()
@@ -21,6 +24,38 @@ public class TitleButton : MonoBehaviour
 		else
 		{
 			sprite.alpha = 0f;
+		}
+	}
+
+	void OnClick()
+	{
+		switch (type)
+		{
+			case TButtonType.NewGame:
+			{
+				break;
+			}
+			case TButtonType.LoadGame:
+			{
+				break;
+			}
+			case TButtonType.Practice:
+			{
+				Application.LoadLevel("Rhythm Section");
+				break;
+			}
+			case TButtonType.Options:
+			{
+				break;
+			}
+			case TButtonType.Exit:
+			{
+				break;
+			}
+			default:
+			{
+				break;
+			}
 		}
 	}
 }
