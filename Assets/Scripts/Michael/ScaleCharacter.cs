@@ -22,6 +22,7 @@ public class ScaleCharacter : MonoBehaviour
 	
 	void Update() 
 	{
+
 		currentPosition = transform.position;
 
 		float s = (maxY - currentPosition.y) / (maxY - minY);

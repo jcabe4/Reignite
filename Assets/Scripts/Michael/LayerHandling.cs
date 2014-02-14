@@ -7,7 +7,7 @@ public class LayerHandling : MonoBehaviour
 
 	void Start() 
 	{
-		objects = GameObject.FindGameObjectsWithTag("Object");
+		objects = GameObject.FindGameObjectsWithTag("Static Object");
 	}
 
 	void Update() 
