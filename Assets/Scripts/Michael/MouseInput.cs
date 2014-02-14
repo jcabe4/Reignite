@@ -50,6 +50,16 @@ public class MouseInput : MonoBehaviour
 				// But if we don't find one, we should be able to move towards where we wanted to go.
 				else if(hits[count].collider.gameObject.tag == "Environment")
 				{
+					Vector3 tempScale = transform.localScale;
+					if(transform.position.x > futurePosition.x)
+					{
+						transform.localScale = new Vector3(-tempScale.x, tempScale.y, 1);
+					}
+					if(transform.position.x < futurePosition.x)
+					{
+						transform.localScale = new Vector3(Mathf.Abs(tempScale.x), tempScale.y, 1);
+					}
+
 					transform.position = Vector3.MoveTowards(transform.position, futurePosition, moveSpeed);
 				}
 			}
