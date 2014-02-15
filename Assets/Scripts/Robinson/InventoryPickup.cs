@@ -8,13 +8,13 @@ public class InventoryPickup : MonoBehaviour
 	//public AudioClip pickup;  //Plays a sound when the item is picked up.
 
 	private Collider playerCollider;
-	private Inventory inventory;  //private reference to the inventory script, inventory.cs The first inventory is the name of the script, the second is the name of the reference.
+	//private Inventory inventory;  //private reference to the inventory script, inventory.cs The first inventory is the name of the script, the second is the name of the reference.
 	public bool interactable = false;
 
 	void Start() 
 	{
 		playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider>();
-		inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();  //sets inventory reference
+		//inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();  //sets inventory reference
 	}
 
 	void Update()
