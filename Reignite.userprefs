@@ -1,5 +1,9 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+>>>>>>> origin/Robert-Rojas
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
