@@ -5,14 +5,19 @@ public class MouseInput : MonoBehaviour
 {
 	public Vector3 futurePosition;
 	public float moveSpeed = .075f;
-
-	Ray towards;
+	public Sprite walkLeftFrame;
+	public Sprite walkRightFrame; //expand these to arrays with animation
+	public Sprite idleFrame;
 
 	private LayerMask ignoreMask = ~(1 << 2);
+	private SpriteRenderer spriteRenderer;
+
+	Ray towards;
 
 	void Start() 
 	{
 		futurePosition = transform.position;
+		spriteRenderer = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
 	}
 	
 	void Update() 
@@ -50,14 +55,13 @@ public class MouseInput : MonoBehaviour
 				// But if we don't find one, we should be able to move towards where we wanted to go.
 				else if(hits[count].collider.gameObject.tag == "Environment")
 				{
-					Vector3 tempScale = transform.localScale;
 					if(transform.position.x > futurePosition.x)
 					{
-						transform.localScale = new Vector3(-tempScale.x, tempScale.y, 1);
+						spriteRenderer.sprite = walkLeftFrame;
 					}
-					if(transform.position.x < futurePosition.x)
+					else if(transform.position.x < futurePosition.x)
 					{
-						transform.localScale = new Vector3(Mathf.Abs(tempScale.x), tempScale.y, 1);
+						spriteRenderer.sprite = walkRightFrame;
 					}
 
 					transform.position = Vector3.MoveTowards(transform.position, futurePosition, moveSpeed);
