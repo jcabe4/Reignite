@@ -31,10 +31,8 @@ public class PlayerInformationReignite : MonoBehaviour
 	}
 
 	private static PlayerInformationReignite instance;
-#if UNITY_EDITOR || UNITY_PC 	
 	private string savePath = "Assets/Resources/Player Data/Info.xml";
 	private string resourcePath = "Player Data/Info";
-#endif
 
 	void Awake()
 	{				
