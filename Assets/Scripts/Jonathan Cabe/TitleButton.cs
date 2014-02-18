@@ -33,6 +33,7 @@ public class TitleButton : MonoBehaviour
 		{
 			case TButtonType.NewGame:
 			{
+				Application.LoadLevel("Library 2F");
 				break;
 			}
 			case TButtonType.LoadGame:
@@ -50,6 +51,7 @@ public class TitleButton : MonoBehaviour
 			}
 			case TButtonType.Exit:
 			{
+				Application.Quit();
 				break;
 			}
 			default:

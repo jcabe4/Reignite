@@ -1,3 +1,12 @@
+/*****************************************************
+ * Program: Reignite
+ * Script: Note.cs
+ * Author: Jonathan Cabe
+ * Description: This is a class representation of what
+ * a note is.  This is used in both the score creation
+ * tool and the rhythm game itself.
+ * ***************************************************/
+
 using UnityEngine;
 using System.Collections;
 
