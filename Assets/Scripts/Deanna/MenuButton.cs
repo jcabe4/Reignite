@@ -3,40 +3,40 @@ using System.Collections;
 
 public class MenuButton : MonoBehaviour 
 {
-	public enum ButtonType {NewGame, LoadGame, Practice, Options, Exit}
-	public ButtonType type;
-	
+	public enum TButtonType {NewGame, LoadGame, Practice, Options, Exit}
+	public TButtonType type;
+
 	void OnClick()
 	{
 		switch (type)
 		{
-		case ButtonType.NewGame:
-		{
-			Application.LoadLevel("Library 2F");
-			break;
-		}
-		case ButtonType.LoadGame:
-		{
-			break;
-		}
-		case ButtonType.Practice:
-		{
-			Application.LoadLevel("Rhythm Section");
-			break;
-		}
-		case ButtonType.Options:
-		{
-			break;
-		}
-		case ButtonType.Exit:
-		{
-			Application.Quit();
-			break;
-		}
-		default:
-		{
-			break;
-		}
+			case TButtonType.NewGame:
+			{
+				Application.LoadLevel("Library 2F");
+				break;
+			}
+			case TButtonType.LoadGame:
+			{
+				break;
+			}
+			case TButtonType.Practice:
+			{
+				Application.LoadLevel("Rhythm Section");
+				break;
+			}
+			case TButtonType.Options:
+			{
+				break;
+			}
+			case TButtonType.Exit:
+			{
+				Application.Quit();
+				break;
+			}
+			default:
+			{
+				break;
+			}
 		}
 	}
 }
