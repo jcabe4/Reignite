@@ -24,12 +24,11 @@ public class ScreenTransition : MonoBehaviour
 	{
 		if(fadeOut)
 		{
-			curtain.GetComponent<UIPanel>().alpha += Time.deltaTime / .75f;
+			curtain.GetComponent<UIPanel>().alpha += Time.deltaTime / .5f;
 			if(curtain.GetComponent<UIPanel>().alpha == 1) 
 			{
 				ready = true;
 				fadeOut = false;
-				player.GetComponent<MouseInput>().enabled = false;
 			}
 		}
 
@@ -44,7 +43,7 @@ public class ScreenTransition : MonoBehaviour
 
 		if(fadeIn)
 		{
-			curtain.GetComponent<UIPanel>().alpha -= Time.deltaTime / .75f;
+			curtain.GetComponent<UIPanel>().alpha -= Time.deltaTime / .5f;
 			if(curtain.GetComponent<UIPanel>().alpha == 0) 
 			{
 				fadeIn = false;
@@ -57,5 +56,6 @@ public class ScreenTransition : MonoBehaviour
 	void OnTriggerEnter()
 	{
 		fadeOut = true;
+		player.GetComponent<MouseInput>().enabled = false;
 	}
 }

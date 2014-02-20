@@ -725,8 +725,8 @@
 		<Note>
 			<Color>0</Color>
 			<StartTotal>47</StartTotal>
-			<EndTotal>47.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
+			<EndTotal>48</EndTotal>
+			<NoteDuration>1</NoteDuration>
 			<PitchPosition>0</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
@@ -734,83 +734,35 @@
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
-				<Seconds>47.5</Seconds>
+				<Seconds>48</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>4</Color>
-			<StartTotal>47.5</StartTotal>
-			<EndTotal>48</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>0</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>47.5</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>48</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>2</Color>
 			<StartTotal>48</StartTotal>
-			<EndTotal>48.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>2</PitchPosition>
+			<EndTotal>49</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>1</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
 				<Seconds>48</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
-				<Seconds>48.5</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>3</Color>
-			<StartTotal>48.5</StartTotal>
-			<EndTotal>49</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>4</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>48.5</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
 				<Seconds>49</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>1</Color>
-			<StartTotal>49</StartTotal>
-			<EndTotal>49.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>6</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>49</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>49.5</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>2</Color>
-			<StartTotal>49.5</StartTotal>
+			<StartTotal>49</StartTotal>
 			<EndTotal>50</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>4</PitchPosition>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>3</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
-				<Seconds>49.5</Seconds>
+				<Seconds>49</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
@@ -821,44 +773,28 @@
 		<Note>
 			<Color>3</Color>
 			<StartTotal>50</StartTotal>
-			<EndTotal>50.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>2</PitchPosition>
+			<EndTotal>51</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>4</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
 				<Seconds>50</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
-				<Seconds>50.5</Seconds>
+				<Seconds>51</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
-			<Color>4</Color>
-			<StartTotal>50.5</StartTotal>
-			<EndTotal>51.5</EndTotal>
-			<NoteDuration>1</NoteDuration>
-			<PitchPosition>0</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>50.5</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>51.5</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>3</Color>
-			<StartTotal>51.5</StartTotal>
+			<Color>1</Color>
+			<StartTotal>51</StartTotal>
 			<EndTotal>52</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>4</PitchPosition>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>6</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
-				<Seconds>51.5</Seconds>
+				<Seconds>51</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
@@ -869,156 +805,60 @@
 		<Note>
 			<Color>2</Color>
 			<StartTotal>52</StartTotal>
-			<EndTotal>52.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>6</PitchPosition>
+			<EndTotal>53</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>4</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
 				<Seconds>52</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
-				<Seconds>52.5</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>1</Color>
-			<StartTotal>52.5</StartTotal>
-			<EndTotal>53</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>8</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>52.5</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
 				<Seconds>53</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>4</Color>
-			<StartTotal>53</StartTotal>
-			<EndTotal>53.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>6</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>53</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>53.5</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>1</Color>
-			<StartTotal>53.5</StartTotal>
-			<EndTotal>54</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>9</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>53.5</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>54</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>2</Color>
-			<StartTotal>54</StartTotal>
-			<EndTotal>54.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>8</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>54</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>54.5</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>3</Color>
-			<StartTotal>54.5</StartTotal>
-			<EndTotal>55</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>6</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>54.5</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>55</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>1</Color>
-			<StartTotal>55</StartTotal>
-			<EndTotal>55.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>4</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>55</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>55.5</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>4</Color>
-			<StartTotal>55.5</StartTotal>
-			<EndTotal>56</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>2</PitchPosition>
-			<StartTime>
-				<Minutes>0</Minutes>
-				<Seconds>55.5</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>0</Minutes>
-				<Seconds>56</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>2</Color>
-			<StartTotal>56</StartTotal>
-			<EndTotal>56.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
+			<StartTotal>53</StartTotal>
+			<EndTotal>54</EndTotal>
+			<NoteDuration>1</NoteDuration>
 			<PitchPosition>3</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
-				<Seconds>56</Seconds>
+				<Seconds>53</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
-				<Seconds>56.5</Seconds>
+				<Seconds>54</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
-			<Color>3</Color>
-			<StartTotal>56.5</StartTotal>
-			<EndTotal>57</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
+			<Color>4</Color>
+			<StartTotal>54</StartTotal>
+			<EndTotal>56</EndTotal>
+			<NoteDuration>2</NoteDuration>
 			<PitchPosition>1</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
-				<Seconds>56.5</Seconds>
+				<Seconds>54</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>0</Minutes>
+				<Seconds>56</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>0</Color>
+			<StartTotal>56</StartTotal>
+			<EndTotal>57</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>0</PitchPosition>
+			<StartTime>
+				<Minutes>0</Minutes>
+				<Seconds>56</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
@@ -1029,25 +869,41 @@
 		<Note>
 			<Color>4</Color>
 			<StartTotal>57</StartTotal>
-			<EndTotal>59</EndTotal>
-			<NoteDuration>2</NoteDuration>
-			<PitchPosition>0</PitchPosition>
+			<EndTotal>58</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>4</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
 				<Seconds>57</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>0</Minutes>
+				<Seconds>58</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>3</Color>
+			<StartTotal>58</StartTotal>
+			<EndTotal>59</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>6</PitchPosition>
+			<StartTime>
+				<Minutes>0</Minutes>
+				<Seconds>58</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>0</Minutes>
 				<Seconds>59</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
-			<Color>0</Color>
+			<Color>2</Color>
 			<StartTotal>59</StartTotal>
 			<EndTotal>60</EndTotal>
 			<NoteDuration>1</NoteDuration>
-			<PitchPosition>0</PitchPosition>
+			<PitchPosition>8</PitchPosition>
 			<StartTime>
 				<Minutes>0</Minutes>
 				<Seconds>59</Seconds>
@@ -1059,318 +915,222 @@
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
-			<Color>10</Color>
+			<Color>4</Color>
 			<StartTotal>60</StartTotal>
-			<EndTotal>62</EndTotal>
-			<NoteDuration>2</NoteDuration>
-			<PitchPosition>2</PitchPosition>
+			<EndTotal>61</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>6</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
 				<Seconds>0</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
-				<Seconds>2</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>6</Color>
-			<StartTotal>62</StartTotal>
-			<EndTotal>64</EndTotal>
-			<NoteDuration>2</NoteDuration>
-			<PitchPosition>4</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>2</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>4</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>7</Color>
-			<StartTotal>64</StartTotal>
-			<EndTotal>66</EndTotal>
-			<NoteDuration>2</NoteDuration>
-			<PitchPosition>3</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>4</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>6</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>8</Color>
-			<StartTotal>66</StartTotal>
-			<EndTotal>68</EndTotal>
-			<NoteDuration>2</NoteDuration>
-			<PitchPosition>1</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>6</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>8</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>9</Color>
-			<StartTotal>68</StartTotal>
-			<EndTotal>70</EndTotal>
-			<NoteDuration>2</NoteDuration>
-			<PitchPosition>2</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>8</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>10</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>0</Color>
-			<StartTotal>70</StartTotal>
-			<EndTotal>71</EndTotal>
-			<NoteDuration>1</NoteDuration>
-			<PitchPosition>0</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>10</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>11</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>10</Color>
-			<StartTotal>71</StartTotal>
-			<EndTotal>72</EndTotal>
-			<NoteDuration>1</NoteDuration>
-			<PitchPosition>2</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>11</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>12</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>8</Color>
-			<StartTotal>72</StartTotal>
-			<EndTotal>73</EndTotal>
-			<NoteDuration>1</NoteDuration>
-			<PitchPosition>3</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>12</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>13</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>2</Color>
-			<StartTotal>73</StartTotal>
-			<EndTotal>73.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>4</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>13</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>13.5</Seconds>
+				<Seconds>1</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>1</Color>
-			<StartTotal>73.5</StartTotal>
-			<EndTotal>73.75</EndTotal>
-			<NoteDuration>0.25</NoteDuration>
-			<PitchPosition>5</PitchPosition>
+			<StartTotal>61</StartTotal>
+			<EndTotal>62</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>9</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
-				<Seconds>13.5</Seconds>
+				<Seconds>1</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
-				<Seconds>13.75</Seconds>
+				<Seconds>2</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>2</Color>
-			<StartTotal>73.75</StartTotal>
-			<EndTotal>74</EndTotal>
-			<NoteDuration>0.25</NoteDuration>
-			<PitchPosition>4</PitchPosition>
+			<StartTotal>62</StartTotal>
+			<EndTotal>63</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>8</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
-				<Seconds>13.75</Seconds>
+				<Seconds>2</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
-				<Seconds>14</Seconds>
+				<Seconds>3</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>3</Color>
-			<StartTotal>74</StartTotal>
-			<EndTotal>74.5</EndTotal>
-			<NoteDuration>0.5</NoteDuration>
-			<PitchPosition>3</PitchPosition>
+			<StartTotal>63</StartTotal>
+			<EndTotal>64</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>7</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
-				<Seconds>14</Seconds>
+				<Seconds>3</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
-				<Seconds>14.5</Seconds>
+				<Seconds>4</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>2</Color>
+			<StartTotal>64</StartTotal>
+			<EndTotal>65</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>4</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>4</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>5</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>4</Color>
-			<StartTotal>74.5</StartTotal>
-			<EndTotal>75</EndTotal>
+			<StartTotal>65</StartTotal>
+			<EndTotal>65.5</EndTotal>
 			<NoteDuration>0.5</NoteDuration>
 			<PitchPosition>2</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
-				<Seconds>14.5</Seconds>
+				<Seconds>5</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
-				<Seconds>15</Seconds>
+				<Seconds>5.5</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>3</Color>
+			<StartTotal>65.5</StartTotal>
+			<EndTotal>66</EndTotal>
+			<NoteDuration>0.5</NoteDuration>
+			<PitchPosition>3</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>5.5</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>6</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>4</Color>
+			<StartTotal>66</StartTotal>
+			<EndTotal>67</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>1</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>6</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>7</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>2</Color>
+			<StartTotal>67</StartTotal>
+			<EndTotal>69</EndTotal>
+			<NoteDuration>2</NoteDuration>
+			<PitchPosition>2</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>7</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>9</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>0</Color>
+			<StartTotal>69</StartTotal>
+			<EndTotal>70</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>0</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>9</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>10</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>10</Color>
-			<StartTotal>75</StartTotal>
+			<StartTotal>70</StartTotal>
+			<EndTotal>72</EndTotal>
+			<NoteDuration>2</NoteDuration>
+			<PitchPosition>2</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>10</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>12</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>6</Color>
+			<StartTotal>72</StartTotal>
+			<EndTotal>74</EndTotal>
+			<NoteDuration>2</NoteDuration>
+			<PitchPosition>4</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>12</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>14</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>7</Color>
+			<StartTotal>74</StartTotal>
 			<EndTotal>76</EndTotal>
-			<NoteDuration>1</NoteDuration>
+			<NoteDuration>2</NoteDuration>
+			<PitchPosition>3</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>14</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>16</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>8</Color>
+			<StartTotal>76</StartTotal>
+			<EndTotal>78</EndTotal>
+			<NoteDuration>2</NoteDuration>
 			<PitchPosition>1</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
-				<Seconds>15</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
 				<Seconds>16</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>2</Color>
-			<StartTotal>76</StartTotal>
-			<EndTotal>76.25</EndTotal>
-			<NoteDuration>0.25</NoteDuration>
-			<PitchPosition>4</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>16</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>16.25</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>1</Color>
-			<StartTotal>76.25</StartTotal>
-			<EndTotal>76.5</EndTotal>
-			<NoteDuration>0.25</NoteDuration>
-			<PitchPosition>5</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>16.25</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>16.5</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>2</Color>
-			<StartTotal>76.5</StartTotal>
-			<EndTotal>76.75</EndTotal>
-			<NoteDuration>0.25</NoteDuration>
-			<PitchPosition>4</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>16.5</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>16.75</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>3</Color>
-			<StartTotal>76.75</StartTotal>
-			<EndTotal>77</EndTotal>
-			<NoteDuration>0.25</NoteDuration>
-			<PitchPosition>3</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>16.75</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>17</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>2</Color>
-			<StartTotal>77</StartTotal>
-			<EndTotal>77.75</EndTotal>
-			<NoteDuration>0.75</NoteDuration>
-			<PitchPosition>4</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>17</Seconds>
-			</StartTime>
-			<EndTime>
-				<Minutes>1</Minutes>
-				<Seconds>17.75</Seconds>
-			</EndTime>
-		</Note>
-		<LengthRatio>0.25</LengthRatio>
-		<Note>
-			<Color>3</Color>
-			<StartTotal>77.75</StartTotal>
-			<EndTotal>78</EndTotal>
-			<NoteDuration>0.25</NoteDuration>
-			<PitchPosition>3</PitchPosition>
-			<StartTime>
-				<Minutes>1</Minutes>
-				<Seconds>17.75</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
@@ -1381,8 +1141,8 @@
 		<Note>
 			<Color>9</Color>
 			<StartTotal>78</StartTotal>
-			<EndTotal>79</EndTotal>
-			<NoteDuration>1</NoteDuration>
+			<EndTotal>80</EndTotal>
+			<NoteDuration>2</NoteDuration>
 			<PitchPosition>2</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
@@ -1390,39 +1150,295 @@
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
-				<Seconds>19</Seconds>
+				<Seconds>20</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>0</Color>
+			<StartTotal>80</StartTotal>
+			<EndTotal>81</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>0</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>20</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>21</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>10</Color>
+			<StartTotal>81</StartTotal>
+			<EndTotal>82</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>2</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>21</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>22</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>8</Color>
-			<StartTotal>79</StartTotal>
-			<EndTotal>80</EndTotal>
+			<StartTotal>82</StartTotal>
+			<EndTotal>83</EndTotal>
 			<NoteDuration>1</NoteDuration>
 			<PitchPosition>3</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
-				<Seconds>19</Seconds>
+				<Seconds>22</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
-				<Seconds>20</Seconds>
+				<Seconds>23</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>2</Color>
+			<StartTotal>83</StartTotal>
+			<EndTotal>83.5</EndTotal>
+			<NoteDuration>0.5</NoteDuration>
+			<PitchPosition>4</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>23</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>23.5</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>1</Color>
+			<StartTotal>83.5</StartTotal>
+			<EndTotal>83.75</EndTotal>
+			<NoteDuration>0.25</NoteDuration>
+			<PitchPosition>5</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>23.5</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>23.75</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>2</Color>
+			<StartTotal>83.75</StartTotal>
+			<EndTotal>84</EndTotal>
+			<NoteDuration>0.25</NoteDuration>
+			<PitchPosition>4</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>23.75</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>24</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>3</Color>
+			<StartTotal>84</StartTotal>
+			<EndTotal>84.5</EndTotal>
+			<NoteDuration>0.5</NoteDuration>
+			<PitchPosition>3</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>24</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>24.5</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>4</Color>
+			<StartTotal>84.5</StartTotal>
+			<EndTotal>85</EndTotal>
+			<NoteDuration>0.5</NoteDuration>
+			<PitchPosition>2</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>24.5</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>25</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>10</Color>
+			<StartTotal>85</StartTotal>
+			<EndTotal>86</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>1</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>25</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>26</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>2</Color>
+			<StartTotal>86</StartTotal>
+			<EndTotal>86.25</EndTotal>
+			<NoteDuration>0.25</NoteDuration>
+			<PitchPosition>4</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>26</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>26.25</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>1</Color>
+			<StartTotal>86.25</StartTotal>
+			<EndTotal>86.5</EndTotal>
+			<NoteDuration>0.25</NoteDuration>
+			<PitchPosition>5</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>26.25</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>26.5</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>2</Color>
+			<StartTotal>86.5</StartTotal>
+			<EndTotal>86.75</EndTotal>
+			<NoteDuration>0.25</NoteDuration>
+			<PitchPosition>4</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>26.5</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>26.75</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>3</Color>
+			<StartTotal>86.75</StartTotal>
+			<EndTotal>87</EndTotal>
+			<NoteDuration>0.25</NoteDuration>
+			<PitchPosition>3</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>26.75</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>27</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>2</Color>
+			<StartTotal>87</StartTotal>
+			<EndTotal>87.75</EndTotal>
+			<NoteDuration>0.75</NoteDuration>
+			<PitchPosition>4</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>27</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>27.75</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>3</Color>
+			<StartTotal>87.75</StartTotal>
+			<EndTotal>88</EndTotal>
+			<NoteDuration>0.25</NoteDuration>
+			<PitchPosition>3</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>27.75</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>28</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>9</Color>
+			<StartTotal>88</StartTotal>
+			<EndTotal>89</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>2</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>28</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>29</Seconds>
+			</EndTime>
+		</Note>
+		<LengthRatio>0.25</LengthRatio>
+		<Note>
+			<Color>8</Color>
+			<StartTotal>89</StartTotal>
+			<EndTotal>90</EndTotal>
+			<NoteDuration>1</NoteDuration>
+			<PitchPosition>3</PitchPosition>
+			<StartTime>
+				<Minutes>1</Minutes>
+				<Seconds>29</Seconds>
+			</StartTime>
+			<EndTime>
+				<Minutes>1</Minutes>
+				<Seconds>30</Seconds>
 			</EndTime>
 		</Note>
 		<LengthRatio>0.25</LengthRatio>
 		<Note>
 			<Color>7</Color>
-			<StartTotal>80</StartTotal>
-			<EndTotal>84</EndTotal>
+			<StartTotal>90</StartTotal>
+			<EndTotal>94</EndTotal>
 			<NoteDuration>4</NoteDuration>
 			<PitchPosition>4</PitchPosition>
 			<StartTime>
 				<Minutes>1</Minutes>
-				<Seconds>20</Seconds>
+				<Seconds>30</Seconds>
 			</StartTime>
 			<EndTime>
 				<Minutes>1</Minutes>
-				<Seconds>24</Seconds>
+				<Seconds>34</Seconds>
 			</EndTime>
 		</Note>
 	</Body>
