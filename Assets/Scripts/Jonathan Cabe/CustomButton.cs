@@ -74,7 +74,15 @@ public class CustomButton : MonoBehaviour
 			}
 		}
 	}
-	
+
+	void OnClick ()
+	{
+		if (type == buttonType.Start)
+		{
+			RhythmGame.Instance.BeginGame();
+		}
+	}
+
 	void OnHover (bool isOver)
 	{
 		if (isOver)
