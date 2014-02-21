@@ -212,72 +212,74 @@ public class MusicSheetBuilder : EditorWindow
 			{
 				switch (reader.Name)
 				{
-				case "LengthRatio":
-				{
-					lengthRatio = float.Parse(reader.ReadElementString());
-					break;
-				}
-				case "Note":
-				{
-					notes.Add(new Note());
-					displayNotes.Add(false);
-					setIndex = notes.Count - 1;
-					break;
-				}
-				case "Color":
-				{
-					notes[setIndex].color = (Note.NoteColor)int.Parse(reader.ReadElementString());
-					break;
-				}
-				case "StartTotal":
-				{
-					notes[setIndex].startTotal = float.Parse(reader.ReadElementString());
-					break;
-				}
-				case "EndTotal":
-				{
-					notes[setIndex].endTotal = float.Parse(reader.ReadElementString());
-					break;
-				}
-				case "NoteDuration":
-				{
-					notes[setIndex].noteDuration = float.Parse(reader.ReadElementString());
-					break;
-				}
-				case "PitchPosition":
-				{
-					notes[setIndex].pitchPosition = int.Parse(reader.ReadElementString());
-					break;
-				}
-				case "StartTime":
-				{
-					Vector2 time = new Vector2();
-					reader.ReadToDescendant("Minutes");
-					time.x = float.Parse(reader.ReadElementContentAsString());
-					reader.ReadToNextSibling("Seconds");
-					time.y = float.Parse(reader.ReadElementContentAsString());
-					
-					notes[setIndex].startTime = time;
-					break;
-				}
-				case "EndTime":
-				{
-					Vector2 time = new Vector2();
-					reader.ReadToDescendant("Minutes");
-					time.x = float.Parse(reader.ReadElementString());
-					reader.ReadToNextSibling("Seconds");
-					time.y = float.Parse(reader.ReadElementString());
-					
-					notes[setIndex].endTime = time;
-					break;
-				}
-				default:
-				{
-					break;
-				}
+					case "LengthRatio":
+					{
+						lengthRatio = float.Parse(reader.ReadElementString());
+						break;
+					}
+					case "Note":
+					{
+						notes.Add(new Note());
+						displayNotes.Add(false);
+						setIndex = notes.Count - 1;
+						break;
+					}
+					case "Color":
+					{
+						notes[setIndex].color = (Note.NoteColor)int.Parse(reader.ReadElementString());
+						break;
+					}
+					case "StartTotal":
+					{
+						notes[setIndex].startTotal = float.Parse(reader.ReadElementString());
+						break;
+					}
+					case "EndTotal":
+					{
+						notes[setIndex].endTotal = float.Parse(reader.ReadElementString());
+						break;
+					}
+					case "NoteDuration":
+					{
+						notes[setIndex].noteDuration = float.Parse(reader.ReadElementString());
+						break;
+					}
+					case "PitchPosition":
+					{
+						notes[setIndex].pitchPosition = int.Parse(reader.ReadElementString());
+						break;
+					}
+					case "StartTime":
+					{
+						Vector2 time = new Vector2();
+						reader.ReadToDescendant("Minutes");
+						time.x = float.Parse(reader.ReadElementContentAsString());
+						reader.ReadToNextSibling("Seconds");
+						time.y = float.Parse(reader.ReadElementContentAsString());
+						
+						notes[setIndex].startTime = time;
+						break;
+					}
+					case "EndTime":
+					{
+						Vector2 time = new Vector2();
+						reader.ReadToDescendant("Minutes");
+						time.x = float.Parse(reader.ReadElementString());
+						reader.ReadToNextSibling("Seconds");
+						time.y = float.Parse(reader.ReadElementString());
+						
+						notes[setIndex].endTime = time;
+						break;
+					}
+					default:
+					{
+						break;
+					}
 				}
 			}
 		}
+
+		reader.Close ();
 	}
 	
 	void SaveFile (string file)
