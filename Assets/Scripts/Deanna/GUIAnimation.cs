@@ -5,6 +5,7 @@ public class GUIAnimation : MonoBehaviour
 {
 	public int numberOfFrames;
 	public string prefix;
+	public int animationStep;
 
 	private UISprite currentSprite;
 
@@ -22,7 +23,7 @@ public class GUIAnimation : MonoBehaviour
 	{
 		frameCount++;
 		
-		if(frameCount >= 8)
+		if(frameCount >= animationStep)
 		{
 			if(index < numberOfFrames)
 			{
