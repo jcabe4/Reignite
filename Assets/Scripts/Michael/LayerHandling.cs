@@ -14,11 +14,14 @@ public class LayerHandling : MonoBehaviour
 	{
 		foreach(GameObject o in objects)
 		{
-			if(transform.position.y >= o.transform.position.y)
+			if(o)
 			{
-				o.renderer.sortingLayerName = "Foreground";
+				if(transform.position.y >= o.transform.position.y)
+				{
+					o.renderer.sortingLayerName = "Foreground";
+				}
+				else o.renderer.sortingLayerName = "Background";
 			}
-			else o.renderer.sortingLayerName = "Background";
 		}
 	}
 }

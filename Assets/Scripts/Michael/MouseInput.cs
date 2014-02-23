@@ -12,7 +12,7 @@ public class MouseInput : MonoBehaviour
 	private LayerMask ignoreMask = ~(1 << 2);
 	private SpriteRenderer spriteRenderer;
 
-	Ray towards;
+	private Ray towards;
 
 	void Start() 
 	{
@@ -23,6 +23,27 @@ public class MouseInput : MonoBehaviour
 	void Update() 
 	{
 		HandleMouse();
+		if(Input.GetMouseButtonDown(0))
+		{
+			HandleClickingObjects();
+		}
+	}
+
+	void HandleClickingObjects() 
+	{
+		RaycastHit hit; 
+		towards = new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
+
+		if(Physics.Raycast(towards, out hit, Mathf.Infinity, ignoreMask))
+		{
+			if(hit.collider.bounds.Contains(new Vector3(this.collider.bounds.center.x, this.collider.bounds.min.y, this.collider.bounds.center.z)))
+			{
+				if(hit.collider.gameObject.GetComponent<DialogInteraction>())
+				{
+					hit.collider.gameObject.GetComponent<DialogInteraction>().BeginInteraction();
+				}
+			}
+		}
 	}
 
 	void HandleMouse()
@@ -39,12 +60,6 @@ public class MouseInput : MonoBehaviour
 		{
 			for(int count = 0; count < hits.Length; count++)
 			{
-				// Object has HIGHEST precedence. Interacting with objects comes before colliding with them.
-				if(hits[count].collider.gameObject.tag == "Interactable")
-				{
-					// interact with object
-				}
-
 				// Since we are raycasting through everything, if we find an obstacle anywhere, we
 				// don't want to move through it.
 				if(hits[count].collider.gameObject.tag == "Obstacle")
