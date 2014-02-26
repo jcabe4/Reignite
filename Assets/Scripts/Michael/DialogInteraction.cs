@@ -1,4 +1,16 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: DialogInteraction.cs
+ * Author: Michael Swedo
+ * Description: The DialogInteraction class is a template
+ * for how interactions handled through dialog are 
+ * implemented before Jonathan Cabe finishes his dialog
+ * system. This is useful as a reference and temporary
+ * solution until such time as a better solution is
+ * established.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class DialogInteraction : MonoBehaviour 
