@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: Michael Swedo.cs
+ * Author: Michael Swedo, reference from Jonathan Cabe's RhythmInput script
+ * Description: This script handles keyboard input,
+ * primarily UI component handling and visibility.
+ * ***************************************************/
+
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;

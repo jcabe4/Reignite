@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: ScaleCharacter.cs
+ * Author: Michael Swedo, with help from Robert Rojas
+ * Description: This script handles scaling the character
+ * as they move from the back of the screen to the front.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class ScaleCharacter : MonoBehaviour 

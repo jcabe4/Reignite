@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: ScreenTransition.cs
+ * Author: Michael Swedo
+ * Description: The ScreenTransition script uses a GUI
+ * element to fade between scenes, moving the player
+ * and the camera's position during the fade to avoid 
+ * any unwanted jumpy camera transitions.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class ScreenTransition : MonoBehaviour 

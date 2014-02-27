@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: MouseInput.cs
+ * Author: Michael Swedo
+ * Description: This script handles mouse interaction,
+ * including movement and object interaction via clicking.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class MouseInput : MonoBehaviour 
@@ -9,6 +17,7 @@ public class MouseInput : MonoBehaviour
 	public Sprite walkRightFrame; //expand these to arrays with animation
 	public Sprite idleFrame;
 
+	// The ignore mask makes it so our raycast ignores the Player sprite.
 	private LayerMask ignoreMask = ~(1 << 2);
 	private SpriteRenderer spriteRenderer;
 
