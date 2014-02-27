@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<Body>
+		<Conversation index="0">
+			<Quote quoteIndex="0" speaker="a" statement="test">
+			</Quote>
+			<Quote quoteIndex="1" speaker="test 2" statement="test 222">
+			</Quote>
+			<Quote quoteIndex="2" speaker="aa" statement="tesssss">
+			</Quote>
+		</Conversation>
+		<Conversation index="1">
+			<Quote quoteIndex="0" speaker="b" statement="bbb">
+			</Quote>
+			<Quote quoteIndex="1" speaker="bbb" statement="bbbbbbbb">
+			</Quote>
+		</Conversation>
+	</Body>
+</Root>
