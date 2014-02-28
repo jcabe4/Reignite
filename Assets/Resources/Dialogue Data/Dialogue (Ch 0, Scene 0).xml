@@ -2,11 +2,11 @@
 <Root>
 	<Body>
 		<Conversation index="0">
-			<Quote quoteIndex="0" speaker="a" statement="test">
+			<Quote quoteIndex="0" speaker="Jonathan" statement="Hello, this is a test of the dialogue system">
 			</Quote>
-			<Quote quoteIndex="1" speaker="test 2" statement="test 222">
+			<Quote quoteIndex="1" speaker="Other Person" statement="If you are seeing this text then the test has passed!!!">
 			</Quote>
-			<Quote quoteIndex="2" speaker="aa" statement="tesssss">
+			<Quote quoteIndex="2" speaker="Jonathan" statement="But if you are not seeing this, then the test has failed!">
 			</Quote>
 		</Conversation>
 		<Conversation index="1">
