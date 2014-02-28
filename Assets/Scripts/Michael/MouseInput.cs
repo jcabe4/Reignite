@@ -1,23 +1,58 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: MouseInput.cs
+ * Author: Michael Swedo
+ * Description: This script handles mouse interaction,
+ * including movement and object interaction via clicking.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class MouseInput : MonoBehaviour 
 {
 	public Vector3 futurePosition;
 	public float moveSpeed = .075f;
+	public Sprite walkLeftFrame;
+	public Sprite walkRightFrame; //expand these to arrays with animation
+	public Sprite idleFrame;
 
-	Ray towards;
-
+	// The ignore mask makes it so our raycast ignores the Player sprite.
 	private LayerMask ignoreMask = ~(1 << 2);
+	private SpriteRenderer spriteRenderer;
+
+	private Ray towards;
 
 	void Start() 
 	{
 		futurePosition = transform.position;
+		spriteRenderer = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
 	}
 	
 	void Update() 
 	{
 		HandleMouse();
+		if(Input.GetMouseButtonDown(0))
+		{
+			HandleClickingObjects();
+		}
+	}
+
+	void HandleClickingObjects() 
+	{
+		RaycastHit hit; 
+		towards = new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
+
+		if(Physics.Raycast(towards, out hit, Mathf.Infinity, ignoreMask))
+		{
+			if(hit.collider.bounds.Contains(new Vector3(this.collider.bounds.center.x, this.collider.bounds.min.y, this.collider.bounds.center.z)))
+			{
+				if(hit.collider.gameObject.GetComponent<DialogInteraction>())
+				{
+					hit.collider.gameObject.GetComponent<DialogInteraction>().BeginInteraction();
+				}
+			}
+		}
 	}
 
 	void HandleMouse()
@@ -34,12 +69,6 @@ public class MouseInput : MonoBehaviour
 		{
 			for(int count = 0; count < hits.Length; count++)
 			{
-				// Object has HIGHEST precedence. Interacting with objects comes before colliding with them.
-				if(hits[count].collider.gameObject.tag == "Interactable")
-				{
-					// interact with object
-				}
-
 				// Since we are raycasting through everything, if we find an obstacle anywhere, we
 				// don't want to move through it.
 				if(hits[count].collider.gameObject.tag == "Obstacle")
@@ -50,14 +79,13 @@ public class MouseInput : MonoBehaviour
 				// But if we don't find one, we should be able to move towards where we wanted to go.
 				else if(hits[count].collider.gameObject.tag == "Environment")
 				{
-					Vector3 tempScale = transform.localScale;
 					if(transform.position.x > futurePosition.x)
 					{
-						transform.localScale = new Vector3(-tempScale.x, tempScale.y, 1);
+						spriteRenderer.sprite = walkLeftFrame;
 					}
-					if(transform.position.x < futurePosition.x)
+					else if(transform.position.x < futurePosition.x)
 					{
-						transform.localScale = new Vector3(Mathf.Abs(tempScale.x), tempScale.y, 1);
+						spriteRenderer.sprite = walkRightFrame;
 					}
 
 					transform.position = Vector3.MoveTowards(transform.position, futurePosition, moveSpeed);

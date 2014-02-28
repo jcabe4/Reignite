@@ -513,13 +513,13 @@ public class RhythmGame : MonoBehaviour
 		else
 		{
 			Debug.Log("Song Clip Not Found!!");
-			return;
+			//return;
 		}
 		
 		if (!File.Exists(path))
 		{
 			Debug.Log(songName + ".xml Not Found @ " + path);
-			return;
+			//return;
 		}
 		
 		TextAsset asset = (TextAsset)Resources.Load(resourcePath);
