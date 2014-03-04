@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: ScreenTransition.cs
+ * Author: Michael Swedo
+ * Description: The ScreenTransition script uses a GUI
+ * element to fade between scenes, moving the player
+ * and the camera's position during the fade to avoid 
+ * any unwanted jumpy camera transitions.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class ScreenTransition : MonoBehaviour 
@@ -6,9 +16,11 @@ public class ScreenTransition : MonoBehaviour
 	public Transform newCameraLocation;
 	public Transform newPlayerLocation;
 	public GameObject curtain;
+	public string requiredItem;
 
 	private GameObject player;
 	private Transform camTransform;
+	private Inv inv;
 
 	private bool fadeOut = false;
 	private bool ready = false;
@@ -18,6 +30,7 @@ public class ScreenTransition : MonoBehaviour
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		camTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
+		inv = player.GetComponent<Inv>();
 	}
 
 	void Update()
@@ -55,7 +68,18 @@ public class ScreenTransition : MonoBehaviour
 
 	void OnTriggerEnter()
 	{
-		fadeOut = true;
-		player.GetComponent<MouseInput>().enabled = false;
+		if(requiredItem == "")
+		{
+			fadeOut = true;
+			player.GetComponent<MouseInput>().enabled = false;
+		}
+		else 
+		{
+			if(inv.items.Contains(requiredItem))
+			{
+				fadeOut = true;
+				player.GetComponent<MouseInput>().enabled = false;
+			}
+		}
 	}
 }
