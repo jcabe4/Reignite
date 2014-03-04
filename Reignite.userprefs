@@ -1,9 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Sally\ExitGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Michael\ScreenTransition.cs">
     <Files>
+      <File FileName="Assets\Scripts\Michael\ScreenTransition.cs" Line="73" Column="2" />
       <File FileName="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Sally\ExitGame.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Michael\KeyboardInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Michael\MouseInput.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
