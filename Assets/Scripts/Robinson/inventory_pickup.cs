@@ -1,28 +1,35 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿/************************************************************
+ * Script: Inventory_pickup.cs
+ * Author: Jonathan Robinson
+ * Description: Inventory pickup mechanism.
+ ************************************************************/
 
-//This is a sample script that handles the picking up of items.
+using UnityEngine;
+using System.Collections;
 
 public class Inventory_pickup : MonoBehaviour 
 {
-	//public AudioClip pickup;  //Plays a sound when the item is picked up.
-
-	private GameObject player;  //private reference to the player
-	private Inventory inventory;  //private reference to the inventory script, inventory.cs The first inventory is the name of the script, the second is the name of the reference.
+	private GameObject Player;  
+	private Inventory inventory;  
 
 	void Awake() 
-	{  //sets references
-		player = GameObject.FindGameObjectWithTag("Player");  //finds the player via tag
-		inventory = player.GetComponent<Inventory>();  //sets inventory reference
+	{
+		Player = GameObject.FindGameObjectWithTag("Player");  
+		inventory = Player.GetComponent<Inventory>(); 
 	}
 
-	void OnTriggerEnter(Collider other) 
+	void Update()
 	{
-		if(other.gameObject == player)  //is the trigger being triggered by the player
+		if (inventory.hasKey == true) 
 		{
-			//AudioSource.PlayClipAtPoint(keyGrab, Transform.position);  //plays sound when key is picked up
-			inventory.hasKey = true;  //sets the variable haskey in inventory script to true
-			//Destroy(gameObject);  //destroys the key.  Becuase this script was attached to the key itself, we can just destroy the game object being the key, otherwise, destroy the key via tag
+			Destroy (gameObject);
+		}
+		if (Input.GetMouseButton (0))
+		{
+			print ("Key picked up!");
+			inventory.hasKey = true;
+			Destroy (gameObject);
+			PlayerInformationReignite.Instance.SaveData();
 		}
 	}
-}//To apply a sound, in the inspector, drag the audio file to the key grab vairable, set with the audiosource line above.
+}

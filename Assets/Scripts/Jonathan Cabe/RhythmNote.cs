@@ -1,10 +1,19 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: RhythmNote.cs
+ * Author: Jonathan Cabe
+ * Description: This is the script that controls the
+ * properties and behaviours of the visual notes that
+ * are seen in the rhythm section.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class RhythmNote : MonoBehaviour 
 {
 	public Note.NoteColor color;
-
+	
 	public UISprite bar1;
 	public UISprite bar2;
 
@@ -12,53 +21,61 @@ public class RhythmNote : MonoBehaviour
 	private UIStretch barStretch1;
 	private UIStretch barStretch2;
 	private Vector2 size = new Vector2();
-
+	
 	private static float singleNote = .07f;
 	private static float doubleNote = .035f;
-	private static Color32 blue = new Color32(0, 0, 255, 255);
-	private static Color32 green = new Color32(0, 150, 0, 255);
-	private static Color32 red = new Color(255, 0, 0, 255);
-	private static Color32 yellow = new Color32(255, 255, 0, 255);
 
+	public static Color32 blue = new Color32(60, 147, 255, 255);
+	public static Color32 green = new Color32(162, 255, 78, 255);
+	public static Color32 red = new Color32(255, 52, 55, 255);
+	public static Color32 yellow = new Color32(255, 222, 69, 255);
+
+	
 	void Start()
 	{
 		if (!anchor)
 		{
 			anchor = gameObject.GetComponent<UIAnchor>();
 		}
-
+		
 		if (bar1 && !barStretch1)
 		{
 			barStretch1 = bar1.gameObject.GetComponent<UIStretch>();
 		}
-
+		
 		if (bar2 && !barStretch2)
 		{
 			barStretch2 = bar2.gameObject.GetComponent<UIStretch>();
 		}
 	}
-
+	
 	void OnEnable()
 	{
 		RhythmGame.Scroll += MoveNote;
 	}
-
+	
 	void OnDisable()
 	{
 		RhythmGame.Scroll -= MoveNote;
 	}
 
-	public void Init(UIAnchor pos, Note.NoteColor newColor, float width)
+	void Update()
+	{
+		DestroySelf();
+	}
+
+	public void Init(UIAnchor pos, Note.NoteColor newColor, float width, GameObject gameObj)
 	{
 		Start();
-
+		
 		color = newColor;
+		anchor.relativeOffset.x = pos.relativeOffset.x;
 		anchor.relativeOffset.y = pos.relativeOffset.y;
 
 		SetColor();
 		SetWidth(width);
 	}
-
+	
 	private void MoveNote(float distance)
 	{
 		anchor.relativeOffset.x -= distance;
@@ -96,10 +113,10 @@ public class RhythmNote : MonoBehaviour
 			case Note.NoteColor.BlueGreen:
 			{
 				bar1.color = blue;
-
+				
 				if (bar2)
 					bar2.color = green;
-
+				
 				break;
 			}
 			case Note.NoteColor.BlueRed:
@@ -108,7 +125,7 @@ public class RhythmNote : MonoBehaviour
 				
 				if (bar2)
 					bar2.color = red;
-
+				
 				break;
 			}
 			case Note.NoteColor.BlueYellow:
@@ -117,7 +134,7 @@ public class RhythmNote : MonoBehaviour
 				
 				if (bar2)
 					bar2.color = yellow;
-
+				
 				break;
 			}
 			case Note.NoteColor.GreenRed:
@@ -126,7 +143,7 @@ public class RhythmNote : MonoBehaviour
 				
 				if (bar2)
 					bar2.color = red;
-
+				
 				break;
 			}
 			case Note.NoteColor.GreenYellow:
@@ -135,7 +152,7 @@ public class RhythmNote : MonoBehaviour
 				
 				if (bar2)
 					bar2.color = yellow;
-
+				
 				break;
 			}
 			case Note.NoteColor.RedYellow:
@@ -144,7 +161,7 @@ public class RhythmNote : MonoBehaviour
 				
 				if (bar2)
 					bar2.color = yellow;
-
+				
 				break;
 			}
 			default:
@@ -154,20 +171,20 @@ public class RhythmNote : MonoBehaviour
 			}
 		}
 	}
-
+	
 	private void SetWidth(float width)
 	{
 		if (barStretch1 && barStretch2)
 		{
 			size.Set(width, doubleNote);
-
+			
 			barStretch1.relativeSize = size;
 			barStretch2.relativeSize = size;
 		}
 		else if (barStretch1)
 		{
 			size.Set(width, singleNote);
-
+			
 			barStretch1.relativeSize = size;
 		}
 		else
@@ -175,4 +192,14 @@ public class RhythmNote : MonoBehaviour
 			Debug.Log("SetWidth() Failed!");
 		}
 	}
+
+	private void DestroySelf()
+	{
+		if (anchor.relativeOffset.x < (-1.5f - barStretch1.relativeSize.x))
+		{
+			RhythmGame.Scroll -= MoveNote;
+			Destroy(gameObject);
+		}
+	}
+
 }
