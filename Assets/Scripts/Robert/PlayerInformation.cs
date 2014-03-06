@@ -21,8 +21,11 @@ public class PlayerInformation : MonoBehaviour
 	private string playerInfo;
 	private GameObject player;
 	private GameObject camera;
+	private GameObject npc;
 	private Item item;
 	private Vector2 scrollPos;
+	private Vector3 playerPos;
+	private Vector3 cameraPos;
 
 	//private string songName;
 	//private int score;
@@ -46,8 +49,9 @@ public class PlayerInformation : MonoBehaviour
 
 	public void Awake()
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
-		camera = GameObject.FindGameObjectWithTag ("MainCamera");
+		player = GameObject.FindGameObjectWithTag("Player");
+		camera = GameObject.FindGameObjectWithTag("MainCamera");
+		npc = GameObject.FindGameObjectWithTag("NPC");
 		item = GameObject.FindGameObjectWithTag("Player").GetComponent<Item>(); 
 
 		if (File.Exists (savePath))
@@ -70,6 +74,8 @@ public class PlayerInformation : MonoBehaviour
 		int setIndex = 0;
 		string resourcePath = "Player Data/PlayerInfo.xml";
 		savePath = "Assets/Resources/Player Data/PlayerInfo.xml";
+		playerPos = player.transform.position;
+		cameraPos = camera.transform.position;
 
 		if (!File.Exists(savePath)) 
 		{
@@ -94,8 +100,8 @@ public class PlayerInformation : MonoBehaviour
 				{
 					case "Scene":
 					{
-						scenes.Add();
-						setIndex = scenes.Count - 1;
+						//scenes.Add();
+						//setIndex = scenes.Count - 1;
 						break;
 					}
                     case "SceneName":
@@ -104,32 +110,32 @@ public class PlayerInformation : MonoBehaviour
                     }
 					case "PlayerPosX":
 					{
-						player.transform.position.x = reader.ReadElementString();
+						playerPos.x = float.Parse(reader.ReadElementString());
 						break;
 					}
                     case "PlayerPosY":
 					{
-						player.transform.position.y = reader.ReadElementString();
+						playerPos.y = float.Parse(reader.ReadElementString());
 						break;
 					}
                     case "PlayerPosZ":
 					{
-						player.transform.position.z = reader.ReadElementString();
+						playerPos.z = float.Parse(reader.ReadElementString());
 						break;
 					}
 					case "CameraPosX":
 					{
-						player.transform.position.x = (reader.ReadElementString());
+						cameraPos.x = float.Parse(reader.ReadElementString());
 						break;
 					}
                     case "CameraPosY":
 					{
-						player.transform.position.y = (reader.ReadElementString());
+						cameraPos.y = float.Parse(reader.ReadElementString());
 						break;
 					}
                     case "CameraPosZ":
 					{
-						player.transform.position.z = (reader.ReadElementString());
+						cameraPos.z = float.Parse(reader.ReadElementString());
 						break;
 					}
 					case "Item":
@@ -165,7 +171,8 @@ public class PlayerInformation : MonoBehaviour
 					}
 					case "HasItem":
 					{
-					items[setIndex].hasItem = bool.Parse(reader.ReadElementString());
+						items[setIndex].hasItem = bool.Parse(reader.ReadElementString());
+						break;
 					}
 					default:
 					{
@@ -179,6 +186,8 @@ public class PlayerInformation : MonoBehaviour
 	public void SavePI()
 	{
 		savePath = "Assets/Resources/Player Data/PlayerInfo.xml";
+		playerPos = player.transform.position;
+		cameraPos = camera.transform.position;
 
 		if (File.Exists(savePath))
 		{
@@ -199,26 +208,26 @@ public class PlayerInformation : MonoBehaviour
 		writer.WriteStartElement("Body");
 
 		//save player and camera position
-			writer.WriteWhitespace("\n\t\t");
-			writer.WriteStartElement("Scene");
-			writer.WriteWhitespace("\n\t\t\t");
-			writer.WriteStartElement("SceneName");
-			writer.WriteWhitespace("\n\t\t\t\t");
-			writer.WriteElementString("PlayerPosition", player.transform.position.x.ToString());
-			writer.WriteWhitespace("\n\t\t\t\t");
-            writer.WriteElementString("PlayerPosition", player.transform.position.y.ToString());
-			writer.WriteWhitespace("\n\t\t\t\t");
-            writer.WriteElementString("PlayerPosition", player.transform.position.z.ToString());
-			writer.WriteWhitespace("\n\t\t\t\t");
-			writer.WriteElementString("CameraPosition", camera.transform.position.x.ToString());
-			writer.WriteWhitespace("\n\t\t\t");
-            writer.WriteElementString("CameraPosition", camera.transform.position.y.ToString());
-			writer.WriteWhitespace("\n\t\t\t");
-            writer.WriteElementString("CameraPosition", camera.transform.position.z.ToString());
-			writer.WriteWhitespace("\n\t\t\t");
-			writer.WriteEndElement();
-			writer.WriteWhitespace("\n\t\t");
-			writer.WriteEndElement();
+		writer.WriteWhitespace("\n\t\t");
+		writer.WriteStartElement("Scene");
+		writer.WriteWhitespace("\n\t\t\t");
+		writer.WriteStartElement("SceneName");
+		writer.WriteWhitespace("\n\t\t\t\t");
+		writer.WriteElementString("PlayerPosX", playerPos.x.ToString());
+		writer.WriteWhitespace("\n\t\t\t\t");
+		writer.WriteElementString("PlayerPosY", playerPos.y.ToString());
+		writer.WriteWhitespace("\n\t\t\t\t");
+		writer.WriteElementString("PlayerPosZ", playerPos.z.ToString());
+		writer.WriteWhitespace("\n\t\t\t\t");
+		writer.WriteElementString("CameraPosX", cameraPos.x.ToString());
+		writer.WriteWhitespace("\n\t\t\t\t");
+		writer.WriteElementString("CameraPosY", cameraPos.y.ToString());
+		writer.WriteWhitespace("\n\t\t\t\t");
+		writer.WriteElementString("CameraPosZ", cameraPos.z.ToString());
+		writer.WriteWhitespace("\n\t\t\t");
+		writer.WriteEndElement();
+		writer.WriteWhitespace("\n\t\t");
+		writer.WriteEndElement();
 
 		/*//save song scores
 		writer.WriteWhitespace("\n\t\t");

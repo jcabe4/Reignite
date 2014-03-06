@@ -37,7 +37,7 @@ public class ItemPickup : MonoBehaviour
 			PI.items[index].hasItem = true;
 			PI.quests[qindex].questActive = true;
 			//Display item in inventory
-			Destroy(GameObject);
+			Destroy(gameObject);
 			PI.SavePI();
 		}
 		else
