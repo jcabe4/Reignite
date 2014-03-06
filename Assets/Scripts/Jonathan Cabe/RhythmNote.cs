@@ -25,10 +25,10 @@ public class RhythmNote : MonoBehaviour
 	private static float singleNote = .07f;
 	private static float doubleNote = .035f;
 
-	public static Color32 blue = new Color32(0, 0, 255, 255);
-	public static Color32 green = new Color32(0, 255, 0, 255);
-	public static Color32 red = new Color32(255, 0, 0, 255);
-	public static Color32 yellow = new Color32(255, 255, 0, 255);
+	public static Color32 blue = new Color32(60, 147, 255, 255);
+	public static Color32 green = new Color32(162, 255, 78, 255);
+	public static Color32 red = new Color32(255, 52, 55, 255);
+	public static Color32 yellow = new Color32(255, 222, 69, 255);
 
 	
 	void Start()

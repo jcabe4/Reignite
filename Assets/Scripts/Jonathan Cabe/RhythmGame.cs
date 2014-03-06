@@ -52,13 +52,13 @@ public class RhythmGame : MonoBehaviour
 	public Transform modifierParent;
 	public AudioClip [] songDatabase;
 	public UIAnchor [] spawnPositions;
-	
+	public int score = 0;
+
 	private UIAnchor pos;
 	private float noteWidth;
 	private RhythmNote rNote;
 	private Note.NoteColor color;
 
-	private int score = 0;
 	private int noteIndex = 0;
 	private int hoverBonus = 0;
 	private int notesSpawned = 0;
@@ -74,7 +74,7 @@ public class RhythmGame : MonoBehaviour
 	public bool bEarnedPoints = false;
 	public bool bCanEarnPoints = true;
 	private Color32 defaultColor = new Color32(219, 219, 219, 150);
-	private byte beatBarAlpha = 150;
+	private byte beatBarAlpha = 255;
 
 	private string path;
 	private RhythmInput rInput;
@@ -264,7 +264,7 @@ public class RhythmGame : MonoBehaviour
 				}
 			}
 			
-			scoreLabel.text = score.ToString("0000000000");
+			scoreLabel.text = score.ToString("000000");
 		}
 	}
 
