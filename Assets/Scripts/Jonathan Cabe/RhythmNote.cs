@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: RhythmNote.cs
+ * Author: Jonathan Cabe
+ * Description: This is the script that controls the
+ * properties and behaviours of the visual notes that
+ * are seen in the rhythm section.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class RhythmNote : MonoBehaviour 
@@ -16,10 +25,10 @@ public class RhythmNote : MonoBehaviour
 	private static float singleNote = .07f;
 	private static float doubleNote = .035f;
 
-	public static Color32 blue = new Color32(99, 162, 239, 255);
-	public static Color32 green = new Color32(140, 196, 87, 255);
-	public static Color32 red = new Color32(228, 92, 93, 255);
-	public static Color32 yellow = new Color32(231, 198, 85, 255);
+	public static Color32 blue = new Color32(60, 147, 255, 255);
+	public static Color32 green = new Color32(162, 255, 78, 255);
+	public static Color32 red = new Color32(255, 52, 55, 255);
+	public static Color32 yellow = new Color32(255, 222, 69, 255);
 
 	
 	void Start()

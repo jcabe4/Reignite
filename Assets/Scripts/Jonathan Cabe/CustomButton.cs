@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: CustomButton.cs
+ * Author: Jonathan Cabe
+ * Description: This is the script that will handle
+ * click events on the buttons located on the options
+ * menu. 
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 public class CustomButton : MonoBehaviour 
@@ -59,9 +68,21 @@ public class CustomButton : MonoBehaviour
 			{
 				RhythmInput.KeyPress(RhythmInput.Instance.options);
 			}
+			else if (type == buttonType.Exit)
+			{
+				Application.LoadLevel("Title Screen");
+			}
 		}
 	}
-	
+
+	void OnClick ()
+	{
+		if (type == buttonType.Start)
+		{
+			RhythmGame.Instance.BeginGame();
+		}
+	}
+
 	void OnHover (bool isOver)
 	{
 		if (isOver)

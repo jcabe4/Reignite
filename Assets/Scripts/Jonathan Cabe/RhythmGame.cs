@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: RhythmGame.cs
+ * Author: Jonathan Cabe
+ * Description: This is the game controller for the
+ * rhythm game.  This handles audio playback, moving
+ * the notes, score handling, and interpreting input.
+ * ***************************************************/
+
+using UnityEngine;
 using System.IO;
 using System.Xml;
 using System.Collections;
@@ -43,13 +52,13 @@ public class RhythmGame : MonoBehaviour
 	public Transform modifierParent;
 	public AudioClip [] songDatabase;
 	public UIAnchor [] spawnPositions;
-	
+	public int score = 0;
+
 	private UIAnchor pos;
 	private float noteWidth;
 	private RhythmNote rNote;
 	private Note.NoteColor color;
 
-	private int score = 0;
 	private int noteIndex = 0;
 	private int hoverBonus = 0;
 	private int notesSpawned = 0;
@@ -60,12 +69,12 @@ public class RhythmGame : MonoBehaviour
 	private float moveDistance = 0f;
 	private float totalNoteTime = 0f;
 	private bool bMissed = false;
-	private bool bPlaySong = false;
-	private bool bBeginGame = false;
-	private bool bEarnedPoints = false;
-	private bool bCanEarnPoints = true;
+	public bool bPlaySong = false;
+	public bool bBeginGame = false;
+	public bool bEarnedPoints = false;
+	public bool bCanEarnPoints = true;
 	private Color32 defaultColor = new Color32(219, 219, 219, 150);
-	private byte beatBarAlpha = 150;
+	private byte beatBarAlpha = 255;
 
 	private string path;
 	private RhythmInput rInput;
@@ -107,7 +116,7 @@ public class RhythmGame : MonoBehaviour
 	{
 		if (bBeginGame && bPlaySong && timeLapsed < audio.clip.length)
 		{
-			if (timeLapsed < 0f)
+			if (timeLapsed < 0f || timeLapsed + 1f > audio.clip.length)
 			{
 				deltaTime = Time.deltaTime;
 			}
@@ -135,6 +144,13 @@ public class RhythmGame : MonoBehaviour
 			{
 				bCanEarnPoints = true;
 			}
+		}
+		else if (bBeginGame && bPlaySong)
+		{
+			bBeginGame = false;
+			bPlaySong = false;
+
+			Application.LoadLevel("Title Screen");
 		}
 
 		if (songProgressBar && timeLapsed < totalNoteTime)
@@ -248,7 +264,7 @@ public class RhythmGame : MonoBehaviour
 				}
 			}
 			
-			scoreLabel.text = score.ToString("0000000000");
+			scoreLabel.text = score.ToString("000000");
 		}
 	}
 
@@ -497,13 +513,13 @@ public class RhythmGame : MonoBehaviour
 		else
 		{
 			Debug.Log("Song Clip Not Found!!");
-			return;
+			//return;
 		}
 		
 		if (!File.Exists(path))
 		{
 			Debug.Log(songName + ".xml Not Found @ " + path);
-			return;
+			//return;
 		}
 		
 		TextAsset asset = (TextAsset)Resources.Load(resourcePath);
