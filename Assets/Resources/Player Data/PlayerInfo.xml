@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<Body>
+		<Scene>
+			<SceneName>
+				<PlayerPosX>-0.1121659</PlayerPosX>
+				<PlayerPosY>9.044972</PlayerPosY>
+				<PlayerPosZ>-14.55326</PlayerPosZ>
+				<CameraPosX>9.582583</CameraPosX>
+				<CameraPosY>8.132395</CameraPosY>
+				<CameraPosZ>-22.40591</CameraPosZ>
+			</SceneName>
+		</Scene>
+	</Body>
+</Root>
