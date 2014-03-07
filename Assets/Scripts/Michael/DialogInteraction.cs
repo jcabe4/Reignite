@@ -19,18 +19,27 @@ public class DialogInteraction : MonoBehaviour
 	public string itemToAdd;
 	public string requiredItem;
 	public GameObject[] affectedObjects;
-	public string[] dialog;
 	public bool isInventoryItem;
 	public bool removeOnComplete;
 	public bool requiresItem;
+	public int conversationIndex = -1;
+	public int quoteIndex;
+	public int postItemGetConversationIndex = -1;
+	public int postItemGetQuoteIndex;
+
+	private bool dialogComplete = false;
 
 	private GameObject player;
 	private Inv inv;
+	private float quoteOffset;
+	private DialogueController dController;
 
 	public void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		inv = player.GetComponent<Inv>();
+		quoteOffset = 6f;
+		dController = DialogueController.Instance;
 	}
 
 	public void BeginInteraction() 
@@ -38,20 +47,45 @@ public class DialogInteraction : MonoBehaviour
 		player.GetComponent<MouseInput>().enabled = false;
 
 		HandleDialog();
-		PerformActions();
-		ChooseScene();
+		if(dialogComplete)
+		{
+			PerformActions();
+			ChooseScene();
+		}
 		End();
 	}
 
 	void HandleDialog()
 	{
-		if(dialog.Length != 0)
+		if(!requiresItem)
 		{
-			for(int i = 0; i < dialog.Length; i++)
+			if(conversationIndex != -1)
 			{
-				Debug.Log(dialog[i]);
+				Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+				dController.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
 			}
 		}
+		else
+		{
+			if(!inv.items.Contains(requiredItem))
+			{
+				if(conversationIndex != -1)
+				{
+					Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+					dController.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
+				}
+			}
+			else
+			{
+				if(postItemGetConversationIndex != -1)
+				{
+					Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+					dController.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
+
+				}
+			}
+		}
+		dialogComplete = true;
 	}
 
 	void PerformActions()

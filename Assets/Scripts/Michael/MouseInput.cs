@@ -40,17 +40,21 @@ public class MouseInput : MonoBehaviour
 
 	void HandleClickingObjects() 
 	{
-		RaycastHit hit; 
+		RaycastHit2D hit; 
 		towards = new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
 
-		if(Physics.Raycast(towards, out hit, Mathf.Infinity, ignoreMask))
+		hit = Physics2D.GetRayIntersection(towards, Mathf.Infinity, ignoreMask);
+
+		/*
+		 * Check to see if the collider we hit contains the center point
+		 * of our collider.
+		 * IE, if that collider has an OverlapPoint of our center point.
+	 	*/
+		if(hit)
 		{
-			if(hit.collider.bounds.Contains(new Vector3(this.collider.bounds.center.x, this.collider.bounds.min.y, this.collider.bounds.center.z)))
+			if(hit.collider.gameObject.GetComponent<DialogInteraction>())
 			{
-				if(hit.collider.gameObject.GetComponent<DialogInteraction>())
-				{
-					hit.collider.gameObject.GetComponent<DialogInteraction>().BeginInteraction();
-				}
+				hit.collider.gameObject.GetComponent<DialogInteraction>().BeginInteraction();
 			}
 		}
 	}
@@ -64,7 +68,7 @@ public class MouseInput : MonoBehaviour
 			futurePosition.z = transform.position.z;
 		}
 
-		RaycastHit[] hits = Physics.RaycastAll(towards, Mathf.Infinity, ignoreMask);
+		RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(towards, Mathf.Infinity, ignoreMask);
 		if(hits.Length > 0)
 		{
 			for(int count = 0; count < hits.Length; count++)

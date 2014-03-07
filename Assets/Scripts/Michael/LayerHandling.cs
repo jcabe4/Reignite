@@ -34,7 +34,8 @@ public class LayerHandling : MonoBehaviour
 					{
 						if(io)
 						{
-							if(so.collider.bounds.Contains (io.collider.bounds.min))
+							//if(so.collider2D.OverlapPoint (io.GetComponent<BoxCollider2D>().center))
+							if(transform.position.y >= io.transform.position.y)
 							{
 								io.renderer.sortingLayerName = "Foreground";
 							}
@@ -50,10 +51,8 @@ public class LayerHandling : MonoBehaviour
 					{
 						if(io)
 						{
-							if(so.collider.bounds.Contains (io.collider.bounds.min))
-							{
-								io.renderer.sortingLayerName = "Background";
-							}
+							//if(so.collider2D.OverlapPoint (io.GetComponent<BoxCollider2D>().center))
+							io.renderer.sortingLayerName = "Background";
 						}
 					}
 					so.renderer.sortingLayerName = "Background";

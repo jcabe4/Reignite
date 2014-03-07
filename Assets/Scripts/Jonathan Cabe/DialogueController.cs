@@ -20,11 +20,14 @@ public class DialogueController : MonoBehaviour
 	public UIPanel conversationPanel;
 	public UILabel speakerLabel;
 	public UILabel statementLabel;
+	public int chapter;
+	public int scene;
 
 	private int currentQuoteIndex = 0;
 	private int charactersDisplayed = 0;
 	private int currentConversationIndex = 0;
 	private float timer = 0f;
+	private float quoteLifeSpan = 1f;
 	private float textSpeed = 5f;
 	private float speedResetValue = 0f;
 	private bool bDisplayText = false;
@@ -41,7 +44,7 @@ public class DialogueController : MonoBehaviour
 	void Start()
 	{
 		instance = this;
-		LoadFile(0, 0);
+		LoadFile(chapter, scene);
 	}
 
 	void Update()
@@ -51,7 +54,7 @@ public class DialogueController : MonoBehaviour
 			timer += Time.deltaTime * textSpeed;
 			charactersDisplayed = Mathf.FloorToInt(timer);
 
-			if (Input.GetKeyUp(KeyCode.F))
+			if (Input.GetKeyUp(KeyCode.Space))
 			{
 				NextQuote();
 			}
@@ -60,24 +63,21 @@ public class DialogueController : MonoBehaviour
 		}
 		else if (bTextFinished)
 		{
-			if (Input.GetKeyUp(KeyCode.F))
+			if (Input.GetKeyUp(KeyCode.Space))
 			{
 				NextQuote();
 			}
 		}
 
+		/*
 		if (Input.GetKeyUp(KeyCode.S) && !bDisplayText)
 		{
 			BeginConversation(0);
 		}
-
-		if (Input.GetMouseButtonUp(0))
-		{
-			SpawnQuoteBubble(Camera.main.ScreenToViewportPoint(Input.mousePosition), 0, 0);
-		}
+		*/
 	}
 
-	void SpawnQuoteBubble(Vector3 pos, int conversationIndex, int quoteIndex)
+	public void SpawnQuoteBubble(Vector3 pos, int conversationIndex, int quoteIndex)
 	{
 		GameObject newBubble = (GameObject)Instantiate(quoteBubble);
 		newBubble.transform.parent = quoteParent.transform;
@@ -97,6 +97,8 @@ public class DialogueController : MonoBehaviour
 				}
 			}
 		}
+
+		Destroy(newBubble, quoteLifeSpan);
 	}
 
 	void BeginConversation(int index)

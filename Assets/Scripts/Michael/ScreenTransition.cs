@@ -66,7 +66,7 @@ public class ScreenTransition : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter()
+	void OnTriggerEnter2D()
 	{
 		if(requiredItem == "")
 		{

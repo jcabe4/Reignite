@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<Body>
+		<Conversation index="0">
+			<Quote quoteIndex="0" speaker="Therese" statement="Did I fall asleep in the library?">
+			</Quote>
+			<Quote quoteIndex="1" speaker="Therese" statement="Why is it so dark in here?">
+			</Quote>
+		</Conversation>
+		<Conversation index="1">
+			<Quote quoteIndex="0" speaker="Therese" statement="That looks incredibly unsafe...">
+			</Quote>
+			<Quote quoteIndex="1" speaker="Therese" statement="It's too dark. I can't see anything.">
+			</Quote>
+			<Quote quoteIndex="2" speaker="Therese" statement="There's a candle here. Might be useful.">
+			</Quote>
+		</Conversation>
+	</Body>
+</Root>
