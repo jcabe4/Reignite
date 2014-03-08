@@ -1,4 +1,13 @@
-﻿using UnityEditor;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: DialogueController.cs
+ * Author: Jonathan Cabe
+ * Description: This script that handles the flow of
+ * dialogue in scene.  By calling its functions,
+ * dialogue can be loaded and show via a full dialogue
+ * window or just a dialogue bubble.
+ * ***************************************************/
+
 using UnityEngine;
 using System.IO;
 using System.Xml;

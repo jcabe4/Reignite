@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: ResizeGrid.cs
+ * Author: Jonathan Cabe
+ * Description: This script adjusts NGUI grids' scaling
+ * spacing, and orientation with respect to either a
+ * specified widget container or screen dimentions.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 [ExecuteInEditMode()]

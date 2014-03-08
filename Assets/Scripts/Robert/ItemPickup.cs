@@ -14,19 +14,17 @@ using System.Collections.Generic;
 
 public class ItemPickup : MonoBehaviour 
 {
-	private GameObject Player;
 	private Item item;
 	private PlayerInformation PI;
 	private GameObject PlayerInformation; //?
 
 	public void Awake()
 	{
-		Player = GameObject.FindGameObjectWithTag ("Player");
 		item = GameObject.FindGameObjectWithTag("Player").GetComponent<Item>();
 		PI = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInformation> ();
 	}
 
-	public void Pickup()
+	/*public void Pickup()
 	{
 		if (Input.GetMouseButtonUp(0))
 		{
@@ -69,5 +67,5 @@ public class ItemPickup : MonoBehaviour
 				}
 			}
 		}
-	}
+	}*/
 }

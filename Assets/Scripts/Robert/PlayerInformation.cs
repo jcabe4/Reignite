@@ -19,51 +19,31 @@ public class PlayerInformation : MonoBehaviour
 	private string savePath;
 	private string scenePath;
 	private string playerInfo;
+
 	private GameObject player;
-	private GameObject camera;
-	private GameObject npc;
-	private Item item;
-	private Vector2 scrollPos;
+	private GameObject mainCamera;
+
 	private Vector3 playerPos;
 	private Vector3 cameraPos;
-
-	//private string songName;
-	//private int score;
-
-	//private bool hasItem = false;
-	//private bool questComplete = false;
-
-	public List<Item> items = new List<Item>();
-	public List<Quest> quests = new List<Quest>();
-    public List<string> scenes = new List<string>();
 
 
 	public static PlayerInformation Instance
 	{
 		get
 		{
-			return Instance;
+			return instance;
 		}
 	}
-//	private static PlayerInformation Instance;
 
-	public void Awake()
+	private static PlayerInformation instance;
+	public List<Item> items = new List<Item>();
+
+	void Awake()
 	{
-		player = GameObject.FindGameObjectWithTag("Player");
-		camera = GameObject.FindGameObjectWithTag("MainCamera");
-		npc = GameObject.FindGameObjectWithTag("NPC");
-		item = GameObject.FindGameObjectWithTag("Player").GetComponent<Item>(); 
-
-		if (File.Exists (savePath))
-		{
-			LoadPI();
-		}
-		else
-		{
-			SavePI();
-		}
+		instance = this;
 	}
 
+	/*
 	public void AddItem(Item newItem)
 	{
 		items.Add(newItem);
@@ -164,11 +144,6 @@ public class PlayerInformation : MonoBehaviour
 						items[setIndex].spriteName = reader.ReadElementString();
 						break;
 					}
-					case "ItemSprite":
-					{
-						items[setIndex].itemSprite.spriteName = reader.ReadElementString();
-						break;
-					}
 					case "HasItem":
 					{
 						items[setIndex].hasItem = bool.Parse(reader.ReadElementString());
@@ -229,14 +204,14 @@ public class PlayerInformation : MonoBehaviour
 		writer.WriteWhitespace("\n\t\t");
 		writer.WriteEndElement();
 
-		/*//save song scores
+		///save song scores
 		writer.WriteWhitespace("\n\t\t");
 		writer.WriteStartElement ("Song");
 		writer.WriteWhitespace("\n\t\t\t");
 		//writer.WriteElementString("HighScore", .ToString());
 		writer.WriteWhitespace("\n\t\t\t");
 		//writer.WriteElementString("SongCompletion", .ToString());
-		writer.WriteWhitespace("\n\t\t");*/
+		writer.WriteWhitespace("\n\t\t");
 
 		//save items in inventory
 		for (int i = 0; i < items.Count; i++)
@@ -253,10 +228,6 @@ public class PlayerInformation : MonoBehaviour
 				writer.WriteElementString("ItemDescription", items[i].itemDescription.ToString());
 				writer.WriteWhitespace("\n\t\t\t");
 				writer.WriteElementString("SpriteName", items[i].spriteName.ToString());
-				writer.WriteWhitespace("\n\t\t\t");
-				writer.WriteElementString("ItemSprite", items[i].itemSprite.ToString());
-				writer.WriteWhitespace("\n\t\t\t");
-				writer.WriteElementString("HasItem", items[i].itemSprite.ToString());
 				//writer.WriteWhitespace("\n\t\t\t");
 				//writer.WriteElementString("QuestComplete", items[i].itemSprite.ToString());
 				writer.WriteWhitespace("\n\t\t");
@@ -273,7 +244,7 @@ public class PlayerInformation : MonoBehaviour
 				writer.WriteElementString("QuestComplete", items[i].questComplete.ToString());
 				writer.WriteWhitespace("\n\t\t");
 				writer.WriteEndElement();
-			}*/
+			}
 		}
 
 		writer.WriteWhitespace("\n\t");
@@ -283,7 +254,7 @@ public class PlayerInformation : MonoBehaviour
 		writer.WriteEndDocument();
 
 		writer.Close();
-	}
+	}*/
 }
 
 
