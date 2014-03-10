@@ -69,10 +69,10 @@ public class RhythmGame : MonoBehaviour
 	private float moveDistance = 0f;
 	private float totalNoteTime = 0f;
 	private bool bMissed = false;
-	public bool bPlaySong = false;
-	public bool bBeginGame = false;
-	public bool bEarnedPoints = false;
-	public bool bCanEarnPoints = true;
+	private bool bPlaySong = false;
+	private bool bBeginGame = false;
+	private bool bEarnedPoints = false;
+	private bool bCanEarnPoints = true;
 	private Color32 defaultColor = new Color32(219, 219, 219, 150);
 	private byte beatBarAlpha = 255;
 
