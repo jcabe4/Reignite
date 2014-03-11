@@ -6,8 +6,10 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class InGameElements : MonoBehaviour 
 {
+	public Camera uiCamera;
 	public string defaultSprite = "Box - Item";
 	public UIPanel pausePanel;
+	public UIPanel mainDialoguePanel;
 	public GameObject inventoryBar;
 	public UISprite[] itemSprites;
 
@@ -28,8 +30,8 @@ public class InGameElements : MonoBehaviour
 	void Start()
 	{
 		instance = this;
-		Debug.Log (Application.persistentDataPath);
-		Debug.Log (System.DateTime.Now.Date);
+		pausePanel.alpha = 0f;
+		mainDialoguePanel.alpha = 0f;
 	}
 
 	void Update()

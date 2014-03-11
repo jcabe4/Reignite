@@ -57,7 +57,10 @@ public class MouseInput : MonoBehaviour
 
 	void HandleMouse()
 	{
-		if(Input.GetMouseButton(0))
+		Ray uiRay = new Ray (InGameElements.Instance.uiCamera.ScreenToWorldPoint (Input.mousePosition), Vector3.forward);
+		uiRay.origin -= Vector3.forward;
+
+		if(Input.GetMouseButton(0) && !(Physics.Raycast(uiRay)))
 		{
 			towards = new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
 			futurePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -65,6 +68,7 @@ public class MouseInput : MonoBehaviour
 		}
 
 		RaycastHit[] hits = Physics.RaycastAll(towards, Mathf.Infinity, ignoreMask);
+
 		if(hits.Length > 0)
 		{
 			for(int count = 0; count < hits.Length; count++)

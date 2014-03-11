@@ -24,6 +24,7 @@ public class DialogueController : MonoBehaviour
 		}
 	}
 
+	public Vector2 defaultDialogue;
 	public Object quoteBubble;
 	public GameObject quoteParent;
 	public UIPanel conversationPanel;
@@ -50,7 +51,8 @@ public class DialogueController : MonoBehaviour
 	void Start()
 	{
 		instance = this;
-		LoadFile(0, 0);
+		conversationPanel.alpha = 0f;
+		LoadFile(Mathf.FloorToInt(defaultDialogue.x), Mathf.FloorToInt(defaultDialogue.y));
 	}
 
 	void Update()
@@ -60,29 +62,7 @@ public class DialogueController : MonoBehaviour
 			timer += Time.deltaTime * textSpeed;
 			charactersDisplayed = Mathf.FloorToInt(timer);
 
-			if (Input.GetKeyUp(KeyCode.F))
-			{
-				NextQuote();
-			}
-
 			ShowStatement(charactersDisplayed);
-		}
-		else if (bTextFinished)
-		{
-			if (Input.GetKeyUp(KeyCode.F))
-			{
-				NextQuote();
-			}
-		}
-
-		if (Input.GetKeyUp(KeyCode.S) && !bDisplayText)
-		{
-			BeginConversation(0);
-		}
-
-		if (Input.GetMouseButtonUp(0))
-		{
-			SpawnQuoteBubble(Camera.main.ScreenToViewportPoint(Input.mousePosition), 0, 0);
 		}
 	}
 
@@ -91,6 +71,7 @@ public class DialogueController : MonoBehaviour
 		GameObject newBubble = (GameObject)Instantiate(quoteBubble);
 		newBubble.transform.parent = quoteParent.transform;
 		newBubble.transform.localScale = Vector3.one;
+		newBubble.name = "Bubble Quote (" + conversationIndex.ToString () + ", " + quoteIndex.ToString () + ")";
 
 		UILabel quoteLabel = newBubble.GetComponentInChildren<UILabel>();
 		UIAnchor anchor = newBubble.GetComponent<UIAnchor>();
@@ -146,7 +127,7 @@ public class DialogueController : MonoBehaviour
 				EndConversation();
 			}
 		}
-		else
+		else if (bDisplayText)
 		{
 			textSpeed *= 1.5f;
 		}

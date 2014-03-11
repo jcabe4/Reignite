@@ -5,6 +5,7 @@ public class MenuButton : MonoBehaviour
 {
 	public enum TButtonType {NewGame, LoadGame, Practice, Options, Exit}
 	public TButtonType type;
+	public UIAnchor cursor;
 
 	void OnClick()
 	{
@@ -37,6 +38,14 @@ public class MenuButton : MonoBehaviour
 			{
 				break;
 			}
+		}
+	}
+
+	void OnHover(bool bIsOver)
+	{
+		if (bIsOver)
+		{
+			cursor.container = gameObject;
 		}
 	}
 }
