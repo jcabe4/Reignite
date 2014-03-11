@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: ResizeCollider.cs
+ * Author: Jonathan Cabe
+ * Description: This script that handles the resizing
+ * of NGUI box colliders on UI widgets if they change
+ * in scale.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 
 [ExecuteInEditMode()]

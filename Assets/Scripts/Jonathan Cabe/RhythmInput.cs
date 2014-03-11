@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: RhythmInput.cs
+ * Author: Jonathan Cabe
+ * Description: This script that handles the input of
+ * the player in the rhythm game scene.  It also 
+ * generates events for any key pressed in the case
+ * that they should be handled specifically.
+ * ***************************************************/
+
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;

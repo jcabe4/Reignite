@@ -15,5 +15,9 @@
 			<Quote quoteIndex="2" speaker="Therese" statement="There's a candle here. Might be useful.">
 			</Quote>
 		</Conversation>
+		<Conversation index="2">
+			<Quote quoteIndex="0" speaker="Therese" statement="My violin! This is a test so I'm just going to start playing it.">
+			</Quote>
+		</Conversation>
 	</Body>
 </Root>

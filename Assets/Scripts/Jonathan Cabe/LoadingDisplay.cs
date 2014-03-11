@@ -1,3 +1,14 @@
+/*****************************************************
+ * Program: Reignite
+ * Script: LoadingDisplay.cs
+ * Author: Jonathan Cabe
+ * Description: This script operates the loading of
+ * other scenes in collaboration with an actual NGUI
+ * UI in scene.  This will persist through every scene.
+ * When loading is called, it will fade to a specified
+ * loading window and then when the next scene is
+ * loaded, it will fade into the scene.
+ * ***************************************************/
 using UnityEngine;
 using System.Collections;
 

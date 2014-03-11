@@ -1,4 +1,13 @@
-﻿using UnityEditor;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: DialogueController.cs
+ * Author: Jonathan Cabe
+ * Description: This script that handles the flow of
+ * dialogue in scene.  By calling its functions,
+ * dialogue can be loaded and show via a full dialogue
+ * window or just a dialogue bubble.
+ * ***************************************************/
+
 using UnityEngine;
 using System.IO;
 using System.Xml;
@@ -7,6 +16,9 @@ using System.Collections.Generic;
 
 public class DialogueController : MonoBehaviour 
 {
+	public delegate void OnConversationEnd(int conversationIndex);
+	public static OnConversationEnd ConversationEnd;
+
 	public static DialogueController Instance
 	{
 		get
@@ -27,7 +39,7 @@ public class DialogueController : MonoBehaviour
 	private int charactersDisplayed = 0;
 	private int currentConversationIndex = 0;
 	private float timer = 0f;
-	private float quoteLifeSpan = 1f;
+	private float quoteLifespan = 1f;
 	private float textSpeed = 5f;
 	private float speedResetValue = 0f;
 	private bool bDisplayText = false;
@@ -40,11 +52,12 @@ public class DialogueController : MonoBehaviour
 	private Quote currentQuote = new Quote();
 	private static DialogueController instance;
 	private List<Conversation> conversations = new List<Conversation>();
-
+	
 	void Start()
 	{
 		instance = this;
 		LoadFile(chapter, scene);
+		conversationPanel.alpha = 0f;
 	}
 
 	void Update()
@@ -54,7 +67,7 @@ public class DialogueController : MonoBehaviour
 			timer += Time.deltaTime * textSpeed;
 			charactersDisplayed = Mathf.FloorToInt(timer);
 
-			if (Input.GetKeyUp(KeyCode.Space))
+			if (Input.GetKeyUp(KeyCode.F))
 			{
 				NextQuote();
 			}
@@ -63,18 +76,16 @@ public class DialogueController : MonoBehaviour
 		}
 		else if (bTextFinished)
 		{
-			if (Input.GetKeyUp(KeyCode.Space))
+			if (Input.GetKeyUp(KeyCode.F))
 			{
 				NextQuote();
 			}
 		}
 
-		/*
 		if (Input.GetKeyUp(KeyCode.S) && !bDisplayText)
 		{
 			BeginConversation(0);
 		}
-		*/
 	}
 
 	public void SpawnQuoteBubble(Vector3 pos, int conversationIndex, int quoteIndex)
@@ -98,10 +109,10 @@ public class DialogueController : MonoBehaviour
 			}
 		}
 
-		Destroy(newBubble, quoteLifeSpan);
+		Destroy(newBubble, quoteLifespan);
 	}
 
-	void BeginConversation(int index)
+	public void BeginConversation(int index)
 	{
 		if (index < conversations.Count)
 		{
@@ -147,6 +158,7 @@ public class DialogueController : MonoBehaviour
 
 	void EndConversation()
 	{
+		ConversationEnd(currentConversationIndex);
 		timer = 0f;
 		bDisplayText = false;
 		bTextFinished = false;
