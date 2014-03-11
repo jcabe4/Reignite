@@ -10,6 +10,7 @@ public class KeyPressIndication : MonoBehaviour
 
 	private RhythmInput rhythmInput;
 	private List<KeyCode> keyCodes;
+
 	void Start () 
 	{
 		rhythmInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<RhythmInput>();
@@ -27,7 +28,6 @@ public class KeyPressIndication : MonoBehaviour
 
 		foreach(KeyCode code in keyCodes)
 		{
-
 			if (key == code)
 			{
 				gameObject.GetComponent<UISprite>().spriteName = onSprite;

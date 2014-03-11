@@ -1,19 +1,19 @@
-/*****************************************************
+﻿/*****************************************************
  * Program: Reignite
- * Script: ExplorationMenuButton.cs
+ * Script: RhythmMenuButton.cs
  * Author: Deanna Sulli
  * Description: This script will handle buttons in the
- * exploration section of the game.
+ * rhythm section of the game.
  * ***************************************************/
 
 using UnityEngine;
 using System.Collections;
 
-public class ExplorationMenuButton : MonoBehaviour 
+public class RhythmMenuButton : MonoBehaviour 
 {
 	public enum ButtonType {Resume, Save, Load, Options, Exit}
 	public ButtonType type;
-
+	
 	public UIPanel menuPanel;
 	public UIPanel optionsPanel; // for the options we will reveal to the player in-game
 	public UIPanel savePanel;
@@ -27,7 +27,7 @@ public class ExplorationMenuButton : MonoBehaviour
 		case ButtonType.Resume:
 		{
 			menuPanel.alpha = 0;
-			GameObject.FindGameObjectWithTag("Player").GetComponent<MouseInput>().enabled = true;
+			RhythmInput.KeyPress(RhythmInput.Instance.options);
 			break;
 		}
 		case ButtonType.Save:

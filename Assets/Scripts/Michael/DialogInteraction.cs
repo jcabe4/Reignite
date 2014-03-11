@@ -16,21 +16,49 @@ using System.Collections;
 public class DialogInteraction : MonoBehaviour 
 {
 	public string sceneToGoTo;
-	public string itemToAdd;
-	public string requiredItem;
+	public string itemToAdd; // change to Item later
+	public string requiredItem; // change to Item later
 	public GameObject[] affectedObjects;
-	public string[] dialog;
 	public bool isInventoryItem;
 	public bool removeOnComplete;
 	public bool requiresItem;
+	public bool isConversation;
+	public int conversationIndex = -1;
+	public int quoteIndex;
+	public int postItemGetConversationIndex = -1;
+	public int postItemGetQuoteIndex;
+
+	private bool dialogComplete = false;
 
 	private GameObject player;
 	private Inv inv;
+	private float quoteOffset;
 
-	public void Start()
+	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		inv = player.GetComponent<Inv>();
+		quoteOffset = 6f;
+	}
+
+	void OnEnable()
+	{
+		DialogueController.ConversationEnd += Load;
+	}
+
+	void OnDisable()
+	{
+		DialogueController.ConversationEnd -= Load;
+
+	}
+
+	void Load(int newConversationIndex)
+	{
+		if(newConversationIndex == conversationIndex)
+		{
+			Application.LoadLevel(sceneToGoTo);
+			End();
+		}
 	}
 
 	public void BeginInteraction() 
@@ -38,19 +66,53 @@ public class DialogInteraction : MonoBehaviour
 		player.GetComponent<MouseInput>().enabled = false;
 
 		HandleDialog();
-		PerformActions();
-		ChooseScene();
-		End();
+		if(dialogComplete)
+		{
+			PerformActions();
+			//ChooseScene();
+		}
+		if(!isConversation)
+		{
+			End();
+		}
 	}
 
 	void HandleDialog()
 	{
-		if(dialog.Length != 0)
+		if(!isConversation)
 		{
-			for(int i = 0; i < dialog.Length; i++)
+			if(!requiresItem)
 			{
-				Debug.Log(dialog[i]);
+				if(conversationIndex != -1)
+				{
+					Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+					DialogueController.Instance.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
+				}
 			}
+			else
+			{
+				if(!inv.items.Contains(requiredItem))
+				{
+					if(conversationIndex != -1)
+					{
+						Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+						DialogueController.Instance.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
+					}
+				}
+				else
+				{
+					if(postItemGetConversationIndex != -1)
+					{
+						Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+						DialogueController.Instance.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
+
+					}
+				}
+			}
+		}
+		else
+		{
+			DialogueController.Instance.BeginConversation(conversationIndex);
 		}
 	}
 
@@ -64,14 +126,6 @@ public class DialogInteraction : MonoBehaviour
 		if(affectedObjects.Length != 0)
 		{
 			// do something to them
-		}
-	}
-
-	void ChooseScene()
-	{
-		if(sceneToGoTo != "")
-		{
-			Application.LoadLevel(sceneToGoTo);
 		}
 	}
 

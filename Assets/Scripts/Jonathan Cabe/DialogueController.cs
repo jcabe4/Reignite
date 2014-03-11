@@ -1,4 +1,13 @@
-﻿using UnityEditor;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: DialogueController.cs
+ * Author: Jonathan Cabe
+ * Description: This script that handles the flow of
+ * dialogue in scene.  By calling its functions,
+ * dialogue can be loaded and show via a full dialogue
+ * window or just a dialogue bubble.
+ * ***************************************************/
+
 using UnityEngine;
 using System.IO;
 using System.Xml;
@@ -7,6 +16,9 @@ using System.Collections.Generic;
 
 public class DialogueController : MonoBehaviour 
 {
+	public delegate void OnConversationEnd(int conversationIndex);
+	public static OnConversationEnd ConversationEnd;
+
 	public static DialogueController Instance
 	{
 		get
@@ -20,11 +32,14 @@ public class DialogueController : MonoBehaviour
 	public UIPanel conversationPanel;
 	public UILabel speakerLabel;
 	public UILabel statementLabel;
+	public int chapter;
+	public int scene;
 
 	private int currentQuoteIndex = 0;
 	private int charactersDisplayed = 0;
 	private int currentConversationIndex = 0;
 	private float timer = 0f;
+	private float quoteLifespan = 1f;
 	private float textSpeed = 5f;
 	private float speedResetValue = 0f;
 	private bool bDisplayText = false;
@@ -37,11 +52,12 @@ public class DialogueController : MonoBehaviour
 	private Quote currentQuote = new Quote();
 	private static DialogueController instance;
 	private List<Conversation> conversations = new List<Conversation>();
-
+	
 	void Start()
 	{
 		instance = this;
-		LoadFile(0, 0);
+		LoadFile(chapter, scene);
+		conversationPanel.alpha = 0f;
 	}
 
 	void Update()
@@ -70,14 +86,9 @@ public class DialogueController : MonoBehaviour
 		{
 			BeginConversation(0);
 		}
-
-		if (Input.GetMouseButtonUp(0))
-		{
-			SpawnQuoteBubble(Camera.main.ScreenToViewportPoint(Input.mousePosition), 0, 0);
-		}
 	}
 
-	void SpawnQuoteBubble(Vector3 pos, int conversationIndex, int quoteIndex)
+	public void SpawnQuoteBubble(Vector3 pos, int conversationIndex, int quoteIndex)
 	{
 		GameObject newBubble = (GameObject)Instantiate(quoteBubble);
 		newBubble.transform.parent = quoteParent.transform;
@@ -97,9 +108,11 @@ public class DialogueController : MonoBehaviour
 				}
 			}
 		}
+
+		Destroy(newBubble, quoteLifespan);
 	}
 
-	void BeginConversation(int index)
+	public void BeginConversation(int index)
 	{
 		if (index < conversations.Count)
 		{
@@ -145,6 +158,7 @@ public class DialogueController : MonoBehaviour
 
 	void EndConversation()
 	{
+		ConversationEnd(currentConversationIndex);
 		timer = 0f;
 		bDisplayText = false;
 		bTextFinished = false;

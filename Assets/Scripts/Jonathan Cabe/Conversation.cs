@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Program: Reignite
+ * Script: Conversation.cs
+ * Author: Jonathan Cabe
+ * Description: This is a script that holds a series
+ * of quotes that constitute a conversation.  The
+ * exposed functions are used to manipulate the list
+ * of quotes by sorting or adding to it.
+ * ***************************************************/
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 

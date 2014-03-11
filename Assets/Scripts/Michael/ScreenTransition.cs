@@ -26,6 +26,7 @@ public class ScreenTransition : MonoBehaviour
 	private bool ready = false;
 	private bool fadeIn = false;
 
+
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -61,12 +62,11 @@ public class ScreenTransition : MonoBehaviour
 			{
 				fadeIn = false;
 				player.GetComponent<MouseInput>().enabled = true;
-
 			}
 		}
 	}
 
-	void OnTriggerEnter()
+	void OnTriggerEnter2D()
 	{
 		if(requiredItem == "")
 		{
