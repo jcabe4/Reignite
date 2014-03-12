@@ -1,1 +1,0 @@
-Dark GUI Skin is dark skin packed with 5 different color scheme.

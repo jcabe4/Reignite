@@ -14,6 +14,7 @@ using System.Collections.Generic;
 
 public class ItemPickup : MonoBehaviour 
 {
+	/*
 	private Item item;
 	private PlayerInformation PI;
 	private GameObject PlayerInformation; //?
