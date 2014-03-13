@@ -157,7 +157,6 @@ public class LoadingDisplay : MonoBehaviour
 	
 	public void Load(string scene)
 	{
-		Debug.Log ("Loading: " + scene);
 		timer = 0f;
 		fade = true;
 		nextScene = scene;

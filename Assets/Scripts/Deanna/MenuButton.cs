@@ -23,7 +23,7 @@ public class MenuButton : MonoBehaviour
 			}
 			case TButtonType.Practice:
 			{
-				LoadingDisplay.Instance.Load("Rhythm Section");
+				PlayerInformation.Instance.LoadRhythm("WarmUp");
 				break;
 			}
 			case TButtonType.Options:

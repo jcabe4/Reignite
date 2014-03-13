@@ -36,14 +36,6 @@ public class CustomButton : MonoBehaviour
 		}
 	}
 
-	void Start()
-	{
-		if (togglePanel)
-		{
-			togglePanel.alpha = 1f;
-		}
-	}
-
 	void Update()
 	{
 		if (togglePanel && Input.GetKeyUp(KeyCode.Return))

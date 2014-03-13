@@ -56,10 +56,6 @@ public class PlayerInformation : MonoBehaviour
 
 		DontDestroyOnLoad (gameObject);
 	}
-
-	void Start()
-	{
-	}
 	
 	void OnLevelWasLoaded()
 	{
@@ -150,6 +146,8 @@ public class PlayerInformation : MonoBehaviour
 			{
 				currentScene = "";
 			}
+
+			RhythmGame.Instance.BeginGame();
 		}
 	}
 
@@ -264,7 +262,6 @@ public class PlayerInformation : MonoBehaviour
 					}
 					case "CurrentScene":
 					{
-					Debug.Log(" Current " );
 						currentScene = reader.ReadElementString();
 						break;
 					}
