@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<Body>
+		<bDisplayTutorial>False</bDisplayTutorial>
+		<CurrentScene>Library 2F</CurrentScene>
+		<PlayerPos X="-3.0839" Y="3.628118" Z="0">
+		<CameraPos X="0" Y="10" Z="-10" />
+	</PlayerPos>
+</Body></Root>

@@ -16,8 +16,8 @@ using System.Collections;
 public class DialogInteraction : MonoBehaviour 
 {
 	public string sceneToGoTo;
-	public string itemToAdd;
 	public string requiredItem;
+	public Item itemToAdd;
 	public GameObject[] affectedObjects;
 	public string[] dialog;
 	public bool isInventoryItem;
@@ -25,12 +25,9 @@ public class DialogInteraction : MonoBehaviour
 	public bool requiresItem;
 
 	private GameObject player;
-	private Inv inv;
-
 	public void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
-		inv = player.GetComponent<Inv>();
 	}
 
 	public void BeginInteraction() 
@@ -56,9 +53,9 @@ public class DialogInteraction : MonoBehaviour
 
 	void PerformActions()
 	{
-		if(itemToAdd != "")
+		if(itemToAdd.itemName != "")
 		{
-			inv.items.Add(itemToAdd);
+			PlayerInformation.Instance.AddItem(itemToAdd);
 		}
 
 		if(affectedObjects.Length != 0)

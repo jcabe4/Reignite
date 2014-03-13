@@ -13,6 +13,9 @@ using System.Collections;
 public class CustomButton : MonoBehaviour 
 {	
 	public enum buttonType {Start, Continue, Options, Exit};
+
+	public bool bSwapSprite = false;
+
 	public buttonType type;
 	public UIPanel togglePanel;
 	public UIPanel optionsPanel;
@@ -53,11 +56,18 @@ public class CustomButton : MonoBehaviour
 	{
 		if (isPressed)
 		{
-			buttonSprite.spriteName = pushedSprite;
+			if (bSwapSprite)
+			{
+				buttonSprite.spriteName = pushedSprite;
+			}
 		}
 		else
 		{
-			buttonSprite.spriteName = normalSprite;
+		
+			if (bSwapSprite)
+			{
+				buttonSprite.spriteName = normalSprite;
+			}
 
 			if (type == buttonType.Start)
 			{
@@ -85,13 +95,16 @@ public class CustomButton : MonoBehaviour
 
 	void OnHover (bool isOver)
 	{
-		if (isOver)
+		if (bSwapSprite)
 		{
-			buttonSprite.spriteName = hoverSprite;
-		}
-		else
-		{
-			buttonSprite.spriteName = normalSprite;
+			if (isOver)
+			{
+				buttonSprite.spriteName = hoverSprite;
+			}
+			else
+			{
+				buttonSprite.spriteName = normalSprite;
+			}
 		}
 	}
 }

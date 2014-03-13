@@ -84,18 +84,24 @@ public class RhythmGame : MonoBehaviour
 	private List<Note> notes = new List<Note>();
 	
 	private static RhythmGame instance;
-	
+
+	void Awake()
+	{
+		instance = this;
+	}
+
 	void Start()
 	{
 		rInput = gameObject.GetComponent<RhythmInput>();
 		musicSource = gameObject.GetComponent<AudioSource>();
 		
-		LoadSong(song);
+		LoadSong(PlayerInformation.Instance.songToLoad);
+		PlayerInformation.Instance.FinishedLoading ();
+
 		CalculateLength();
+
 		timeOffset = 1f / lengthRatio;
 		timeLapsed -= timeOffset;
-
-		instance = this;
 	}
 
 	void OnEnable()
@@ -150,7 +156,14 @@ public class RhythmGame : MonoBehaviour
 			bBeginGame = false;
 			bPlaySong = false;
 
-			Application.LoadLevel("Title Screen");
+			if (PlayerInformation.Instance.bPractice)
+			{
+				LoadingDisplay.Instance.Load("Title Screen");
+			}
+			else
+			{
+				PlayerInformation.Instance.ReturnFromRhythm();
+			}
 		}
 
 		if (songProgressBar && timeLapsed < totalNoteTime)
@@ -496,7 +509,7 @@ public class RhythmGame : MonoBehaviour
 		return -1;
 	}
 	
-	private void LoadSong (string songName)
+	public void LoadSong (string songName)
 	{
 		song = songName;
 		int setIndex = 0;

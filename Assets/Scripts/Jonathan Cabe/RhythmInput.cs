@@ -49,11 +49,15 @@ public class RhythmInput : MonoBehaviour
 	public List<KeyCode> colorKeys = new List<KeyCode>();
 	public List<KeyCode> otherKeys = new List<KeyCode>();
 
+	void Awake()
+	{
+		instance = this;
+	}
+
 	void Start()
 	{
 		cursorPos = cursor.GetComponent<UIAnchor> ();
 		keys = System.Enum.GetNames(typeof(KeyCode)).Length;
-		instance = this;
 	}
 
 	void OnEnable()

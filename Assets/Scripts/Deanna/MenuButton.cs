@@ -13,16 +13,17 @@ public class MenuButton : MonoBehaviour
 		{
 			case TButtonType.NewGame:
 			{
-				Application.LoadLevel("Library 2F");
+				LoadingDisplay.Instance.Load("Library 2F");
 				break;
 			}
 			case TButtonType.LoadGame:
 			{
+				PlayerInformation.Instance.LoadGame();
 				break;
 			}
 			case TButtonType.Practice:
 			{
-				Application.LoadLevel("Rhythm Section");
+				LoadingDisplay.Instance.Load("Rhythm Section");
 				break;
 			}
 			case TButtonType.Options:

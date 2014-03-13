@@ -76,14 +76,7 @@ public class InGameElements : MonoBehaviour
 	{
 		if (pausePanel)
 		{
-			if (pausePanel.alpha == 1f)
-			{
-				pausePanel.alpha = 0f;
-			}
-			else
-			{
-				pausePanel.alpha = 1f;
-			}
+			KeyboardInput.KeyPress(KeyCode.Escape);
 		}
 	}
 

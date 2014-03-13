@@ -7,8 +7,8 @@
 using UnityEngine;
 using System.Collections;
 
-//[System.Serializable]
-public class Item : MonoBehaviour
+[System.Serializable]
+public class Item
 {
 	public int itemID;
 	public bool hasItem;

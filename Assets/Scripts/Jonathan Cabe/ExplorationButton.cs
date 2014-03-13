@@ -32,10 +32,14 @@ public class ExplorationButton : MonoBehaviour
 			}
 			case ButtonType.Save:
 			{
+				InGameElements.Instance.TogglePause();
+				PlayerInformation.Instance.SaveData();
 				break;
 			}
 			case ButtonType.Load:
 			{
+				InGameElements.Instance.TogglePause();
+				PlayerInformation.Instance.LoadGame();
 				break;
 			}
 			case ButtonType.Exit:

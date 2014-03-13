@@ -16,11 +16,10 @@ public class ScreenTransition : MonoBehaviour
 	public Transform newCameraLocation;
 	public Transform newPlayerLocation;
 	public GameObject curtain;
-	public string requiredItem;
+	public Item requiredItem;
 
 	private GameObject player;
 	private Transform camTransform;
-	private Inv inv;
 
 	private bool fadeOut = false;
 	private bool ready = false;
@@ -30,7 +29,6 @@ public class ScreenTransition : MonoBehaviour
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 		camTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
-		inv = player.GetComponent<Inv>();
 	}
 
 	void Update()
@@ -68,14 +66,14 @@ public class ScreenTransition : MonoBehaviour
 
 	void OnTriggerEnter()
 	{
-		if(requiredItem == "")
+		if(requiredItem.itemName == "")
 		{
 			fadeOut = true;
 			player.GetComponent<MouseInput>().enabled = false;
 		}
 		else 
 		{
-			if(inv.items.Contains(requiredItem))
+			if(PlayerInformation.Instance.items.Contains(requiredItem))
 			{
 				fadeOut = true;
 				player.GetComponent<MouseInput>().enabled = false;
