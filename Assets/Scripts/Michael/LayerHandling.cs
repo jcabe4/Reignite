@@ -13,6 +13,8 @@ using System.Collections;
 
 public class LayerHandling : MonoBehaviour 
 {
+	private float transformOffset = 2.5f;
+
 	private GameObject[] staticObjects;
 	private GameObject[] interactiveObjects;
 
@@ -37,7 +39,7 @@ public class LayerHandling : MonoBehaviour
 							//if(so.collider2D.OverlapPoint (io.GetComponent<BoxCollider2D>().center))
 							if(transform.position.y >= io.transform.position.y)
 							{
-								io.renderer.sortingLayerName = "Foreground";
+								io.renderer.sortingLayerName = "Interactive Foreground";
 							}
 						}
 					}
@@ -51,8 +53,14 @@ public class LayerHandling : MonoBehaviour
 					{
 						if(io)
 						{
-							//if(so.collider2D.OverlapPoint (io.GetComponent<BoxCollider2D>().center))
-							io.renderer.sortingLayerName = "Background";
+							if(transform.position.y + transformOffset <= io.transform.position.y)
+							{
+								io.renderer.sortingLayerName = "Interactive Background";
+							}
+							else
+							{
+								io.renderer.sortingLayerName = "Above Static Foreground";
+							}
 						}
 					}
 					so.renderer.sortingLayerName = "Background";

@@ -17,6 +17,9 @@ public class ScreenTransition : MonoBehaviour
 	public Transform newPlayerLocation;
 	public GameObject curtain;
 	public string requiredItem;
+	public bool changeScale = false;
+	public float nextRoomMaxScale;
+	public float nextRoomMinScale;
 
 	private GameObject player;
 	private Transform camTransform;
@@ -51,6 +54,12 @@ public class ScreenTransition : MonoBehaviour
 			camTransform.position = newCameraLocation.position;
 			player.transform.position = newPlayerLocation.position;
 			player.GetComponent<MouseInput>().futurePosition = newPlayerLocation.position;
+
+			if(changeScale)
+			{
+				player.GetComponent<ScaleCharacter>().changeScaleFactors(nextRoomMaxScale, nextRoomMinScale);
+			}
+
 			ready = false;
 			fadeIn = true;
 		}
