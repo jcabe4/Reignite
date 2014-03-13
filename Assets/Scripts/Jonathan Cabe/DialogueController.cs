@@ -67,7 +67,7 @@ public class DialogueController : MonoBehaviour
 			timer += Time.deltaTime * textSpeed;
 			charactersDisplayed = Mathf.FloorToInt(timer);
 			
-			if (Input.GetKeyUp(KeyCode.F))
+			if (Input.GetKeyUp(KeyCode.F) || Input.GetMouseButtonUp(0))
 			{
 				NextQuote();
 			}
@@ -76,7 +76,7 @@ public class DialogueController : MonoBehaviour
 		}
 		else if (bTextFinished)
 		{
-			if (Input.GetKeyUp(KeyCode.F))
+			if (Input.GetKeyUp(KeyCode.F) || Input.GetMouseButtonUp(0))
 			{
 				NextQuote();
 			}
@@ -197,7 +197,8 @@ public class DialogueController : MonoBehaviour
 		savePath = Application.dataPath + "/Resources/Dialogue Data/" + fileName + ".xml";
 		resourcePath = "Dialogue Data/" + fileName;
 		int temp = 0;
-		
+
+		#if UNITY_EDITOR
 		if (!File.Exists(savePath))
 		{
 			Debug.Log(fileName + ".xml Not Found @ \n" + savePath);
@@ -207,7 +208,8 @@ public class DialogueController : MonoBehaviour
 		{
 			Debug.Log("Loading " + fileName + ".xml @ \n" + savePath);
 		}
-		
+		#endif
+
 		TextAsset asset = (TextAsset)Resources.Load(resourcePath);
 		XmlReader reader = XmlReader.Create(new StringReader(asset.text));
 		

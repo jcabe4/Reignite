@@ -13,6 +13,7 @@ public class MenuButton : MonoBehaviour
 		{
 			case TButtonType.NewGame:
 			{
+				PlayerInformation.Instance.NewData();
 				LoadingDisplay.Instance.Load("Library 2F");
 				break;
 			}

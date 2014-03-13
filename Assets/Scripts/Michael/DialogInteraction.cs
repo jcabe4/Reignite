@@ -71,7 +71,7 @@ public class DialogInteraction : MonoBehaviour
 		player.GetComponent<MouseInput>().enabled = false;
 		
 		HandleDialog();
-		if(dialogComplete)
+		if(dialogComplete || isInventoryItem)
 		{
 			PerformActions();
 			//ChooseScene();
@@ -125,7 +125,10 @@ public class DialogInteraction : MonoBehaviour
 	{
 		if(itemToAdd.itemName != "")
 		{
-			PlayerInformation.Instance.AddItem(itemToAdd);
+			if (PlayerInformation.Instance)
+			{
+				PlayerInformation.Instance.AddItem(itemToAdd);
+			}
 		}
 		
 		if(affectedObjects.Length != 0)

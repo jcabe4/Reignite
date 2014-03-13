@@ -50,6 +50,7 @@ public class MouseInput : MonoBehaviour
 		 * of our collider.
 		 * IE, if that collider has an OverlapPoint of our center point.
 	 	*/
+
 		if(hit)
 		{
 			if(hit.collider.gameObject.GetComponent<DialogInteraction>())

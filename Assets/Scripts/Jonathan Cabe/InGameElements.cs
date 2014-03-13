@@ -17,6 +17,11 @@ public class InGameElements : MonoBehaviour
 	{
 		get
 		{
+			if (!instance)
+			{
+				instance = GameObject.Find("In Game UI").GetComponent<InGameElements>();
+			}
+
 			return instance;
 		}
 	}
@@ -27,9 +32,13 @@ public class InGameElements : MonoBehaviour
 	private static InGameElements instance;
 	private List<Item> items = new List<Item>();
 
-	void Start()
+	void Awake()
 	{
 		instance = this;
+	}
+
+	void Start()
+	{
 		pausePanel.alpha = 0f;
 		mainDialoguePanel.alpha = 0f;
 	}
@@ -86,13 +95,12 @@ public class InGameElements : MonoBehaviour
 		{
 			activeItemIndex = itemIndex;
 			bItemSelected = selected;
+			Debug.Log (activeItemIndex.ToString () + ", " + bItemSelected.ToString ());
 		}
 		else
 		{
 			activeItemIndex = -1;
 			bItemSelected = false;
 		}
-
-		Debug.Log (activeItemIndex.ToString () + ", " + bItemSelected.ToString ());
 	}
 }

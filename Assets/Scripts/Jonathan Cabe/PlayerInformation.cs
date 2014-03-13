@@ -98,7 +98,6 @@ public class PlayerInformation : MonoBehaviour
 				return;
 			}
 		}
-
 		items.Add (newItem);
 		SaveData ();
 	}
@@ -158,6 +157,28 @@ public class PlayerInformation : MonoBehaviour
 			bFromRhythm = true;
 			LoadingDisplay.Instance.Load(currentScene);
 		}
+	}
+
+	public void NewData()
+	{
+		if (File.Exists(savePath))
+		{
+			File.Delete(savePath);
+		}
+
+		songToLoad = "";
+		currentScene = "";
+		bPractice = false;
+		items.Clear ();
+
+		bToRhythm = false;
+		bFromRhythm = false;
+		bLoadingGame = false;
+		bDisplayTutorial = false;
+		
+		playerPos = Vector3.zero;
+		cameraPos = Vector3.zero;
+		player = null;
 	}
 
 	public void SaveData()

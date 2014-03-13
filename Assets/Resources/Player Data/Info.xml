@@ -3,7 +3,7 @@
 	<Body>
 		<bDisplayTutorial>False</bDisplayTutorial>
 		<CurrentScene>Library 2F</CurrentScene>
-		<PlayerPos X="-4.055464" Y="3.403811" Z="-1">
+		<PlayerPos X="-4.410507" Y="3.409337" Z="-1">
 		<CameraPos X="0" Y="10" Z="-10" />
 		<Item>
 			<ItemName>Candle</ItemName>
