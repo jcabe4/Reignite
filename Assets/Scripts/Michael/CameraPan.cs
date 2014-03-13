@@ -3,13 +3,9 @@ using System.Collections;
 
 public class CameraPan : MonoBehaviour 
 {
-	public Transform cameraPos1;
-	public Transform cameraPos2;
+	public Transform target;
+	public float transitionDuration = 1.5f;
 
-	public bool begin;
-	private float dampTime = 0.2f;
-	private Vector3 velocity = Vector3.zero;
-	
 	private Transform cameraTransform;
 
 	void Start() 
@@ -17,27 +13,23 @@ public class CameraPan : MonoBehaviour
 		cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
 	}
 	
-	/*void Update() 
-	{
-		cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
-		if(begin)
-		{
-			if(cameraTransform.position == cameraPos1.position)
-			{
-				//cameraTransform.position = cameraPos2.position;
-				Vector3.SmoothDamp(cameraTransform.position, cameraPos2.position, ref velocity, dampTime);
-			}
-		}
-		//begin = false;
-	}*/
-
 	void OnTriggerEnter2D()
 	{
-		//begin = true;
-		cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
-		if(cameraTransform.position == cameraPos1.position)
+		//cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
+
+		StartCoroutine(Transition());
+	}
+
+	IEnumerator Transition()
+	{
+		float t = 0.0f;
+		Vector3 startingPos = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().position;
+		while (t < 1.0f)
 		{
-			cameraTransform.position = cameraPos2.position;
+			t += Time.deltaTime * (Time.timeScale / transitionDuration);
+			
+			cameraTransform.position = Vector3.Lerp(startingPos, target.position, t);
+			yield return 0;
 		}
 	}
 }
