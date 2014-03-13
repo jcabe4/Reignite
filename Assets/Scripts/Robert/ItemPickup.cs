@@ -14,46 +14,41 @@ using System.Collections.Generic;
 
 public class ItemPickup : MonoBehaviour 
 {
-	private GameObject Player;
+	private int index;
+	//int qindex = PI.quests.Count;
 	private Item item;
 	private PlayerInformation PI;
 	private GameObject PlayerInformation; //?
 
 	public void Awake()
 	{
-		Player = GameObject.FindGameObjectWithTag ("Player");
 		item = GameObject.FindGameObjectWithTag("Player").GetComponent<Item>();
-		PI = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInformation> ();
+		PI = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInformation>();
 	}
 
 	public void Pickup()
 	{
-		if (Input.GetMouseButtonUp(0))
+		if (Input.GetMouseButton (0))
 		{
-			int index = PI.items.Count;
-			int qindex = PI.quests.Count;
+			index = PI.items.Count;
 			print("Item picked up.");
 			PI.items.Add(item);
 			PI.items[index].hasItem = true;
-			PI.quests[qindex].questActive = true;
+			//PI.quests[qindex].questActive = true;
 			//Display item in inventory
 			Destroy(gameObject);
 			PI.SavePI();
-		}
-		else
-		{
-			print("Item pickup failed.");
 		}
 	}
 
 	public void Use()
 	{
-		//Item usage & removal from inventory.
-		for (int qindex = 0; qindex < PI.quests.Count; qindex++)
+		/*//Item usage & removal from inventory.
+		//for (int qindex = 0; qindex < PI.quests.Count; qindex++)
 		{
-			for (int index = 0; index < PI.items.Count; index++)
+			for (index = 0; index < PI.items.Count; index++)
 			{
-				if (PI.quests[qindex].itemName == PI.items[index].itemName && PI.items[index].hasItem == true && PI.quests[qindex].questComplete == false)
+				//if (PI.quests[qindex].itemName == PI.items[index].itemName && PI.items[index].hasItem == true && PI.quests[qindex].questComplete == false)
 	        	{
 			 		//set index
 					
@@ -63,11 +58,11 @@ public class ItemPickup : MonoBehaviour
 					//Load Rythm Section
 	         		PI.SavePI();
 				}
-				else
-				{
+				//else
+				//{
 	      	  	//Prompting dialogue.
-				}
+				//}
 			}
-		}
+		}*/
 	}
 }

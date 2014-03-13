@@ -15,46 +15,41 @@ using System.Collections.Generic;
 
 public class PlayerInformation : MonoBehaviour
 {
-	private string fileName;
 	private string savePath;
-	private string scenePath;
-	private string playerInfo;
-	private GameObject player;
-	private GameObject camera;
-	private GameObject npc;
-	private Item item;
-	private Vector2 scrollPos;
 	private Vector3 playerPos;
 	private Vector3 cameraPos;
-
+	private GameObject player;
+	private GameObject npc;
+	private Camera camera;
+	private Item item;
 	//private string songName;
 	//private int score;
-
 	//private bool hasItem = false;
 	//private bool questComplete = false;
 
+	public List<string> songs = new List<string>();
+	public List<int> scores = new List<int>();
 	public List<Item> items = new List<Item>();
-	public List<Quest> quests = new List<Quest>();
-    public List<string> scenes = new List<string>();
-
-
+	public List<string> scenes = new List<string>();
+	
 	public static PlayerInformation Instance
 	{
 		get
 		{
-			return Instance;
+			return instance;
 		}
 	}
-//	private static PlayerInformation Instance;
+	
+	private static PlayerInformation instance;
 
 	public void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
-		camera = GameObject.FindGameObjectWithTag("MainCamera");
 		npc = GameObject.FindGameObjectWithTag("NPC");
+		camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		item = GameObject.FindGameObjectWithTag("Player").GetComponent<Item>(); 
 
-		if (File.Exists (savePath))
+		if (File.Exists(savePath))
 		{
 			LoadPI();
 		}
@@ -64,18 +59,46 @@ public class PlayerInformation : MonoBehaviour
 		}
 	}
 
-	public void AddItem(Item newItem)
+	public void Update()
+	{
+		int index;
+
+//		if (Application.LoadLevel)
+//		{
+
+			if (Application.loadedLevelName != "Rhythm Section")
+			{
+				index = scenes.Count;
+				scenes[index] = Application.loadedLevelName;
+			}
+			else if (Application.loadedLevelName == "Rhythm Section")
+			{
+				index = songs.Count;
+				songs[index] = RhythmGame.Instance.song;
+				scores[index] = RhythmGame.Instance.score;
+			}
+			for (index = 0; index < items.Count; index++)
+			{
+				if (items[index].hasItem == true)
+				{
+					Destroy(items[index].gameObject);
+				}
+			}
+//		}
+	}
+
+	/*public void AddItem(Item newItem)
 	{
 		items.Add(newItem);
-	}
+	}*/
 
 	public void LoadPI()
 	{
-		int setIndex = 0;
+		int sceneIndex = 0;
+		int songIndex = 0;
+		int itemIndex = 0;
 		string resourcePath = "Player Data/PlayerInfo.xml";
 		savePath = "Assets/Resources/Player Data/PlayerInfo.xml";
-		playerPos = player.transform.position;
-		cameraPos = camera.transform.position;
 
 		if (!File.Exists(savePath)) 
 		{
@@ -98,86 +121,68 @@ public class PlayerInformation : MonoBehaviour
 			{
 				switch (reader.Name)
 				{
-					case "Scene":
-					{
-						//scenes.Add();
-						//setIndex = scenes.Count - 1;
-						break;
-					}
-                    case "SceneName":
-                    {
-                        break;
-                    }
-					case "PlayerPosX":
-					{
-						playerPos.x = float.Parse(reader.ReadElementString());
-						break;
-					}
-                    case "PlayerPosY":
-					{
-						playerPos.y = float.Parse(reader.ReadElementString());
-						break;
-					}
-                    case "PlayerPosZ":
-					{
-						playerPos.z = float.Parse(reader.ReadElementString());
-						break;
-					}
-					case "CameraPosX":
-					{
-						cameraPos.x = float.Parse(reader.ReadElementString());
-						break;
-					}
-                    case "CameraPosY":
-					{
-						cameraPos.y = float.Parse(reader.ReadElementString());
-						break;
-					}
-                    case "CameraPosZ":
-					{
-						cameraPos.z = float.Parse(reader.ReadElementString());
-						break;
-					}
-					case "Item":
-					{
-						items.Add(new Item());
-						setIndex = items.Count - 1;
-						break;
-					}
-					case "ItemName":
-					{
-						items[setIndex].itemName = reader.ReadElementString();
-						break;
-					}
-					case "ItemID":
-					{
-						items[setIndex].itemID = int.Parse(reader.ReadElementString());
-						break;
-					}
-					case "ItemDescription":
-					{
-						items[setIndex].itemDescription = reader.ReadElementString();
-						break;
-					}
-					case "SpriteName":
-					{
-						items[setIndex].spriteName = reader.ReadElementString();
-						break;
-					}
-					case "ItemSprite":
-					{
-						items[setIndex].itemSprite.spriteName = reader.ReadElementString();
-						break;
-					}
-					case "HasItem":
-					{
-						items[setIndex].hasItem = bool.Parse(reader.ReadElementString());
-						break;
-					}
-					default:
-					{
-						break;
-					}
+				case "Scene":
+					sceneIndex = scenes.Count - 1;
+					break;
+				case "SceneName":
+					scenes[sceneIndex] = reader.ReadElementString();
+					break;
+				case "PlayerPosX":
+					playerPos.x = float.Parse(reader.ReadElementString());
+					break;
+				case "PlayerPosY":
+					playerPos.y = float.Parse(reader.ReadElementString());
+					break;
+				case "PlayerPosZ":
+					playerPos.z = float.Parse(reader.ReadElementString());
+					break;
+				case "CameraPosX":
+					cameraPos.x = float.Parse(reader.ReadElementString());
+					break;
+				case "CameraPosY":
+					cameraPos.y = float.Parse(reader.ReadElementString());
+					break;
+				case "CameraPosZ":
+					cameraPos.z = float.Parse(reader.ReadElementString());
+					break;
+
+				case "Song":
+					songIndex = songs.Count - 1;
+					break;
+				case "SongName":
+					songs[songIndex] = reader.ReadElementString();
+					break;
+				case "HighScore":
+					scores[songIndex] = int.Parse(reader.ReadElementString());
+					break;
+
+				case "Item":
+					items.Add(new Item());
+					itemIndex = items.Count - 1;
+					break;
+				case "ItemName":
+					items[itemIndex].itemName = reader.ReadElementString();
+					break;
+				case "ItemID":
+					items[itemIndex].itemID = int.Parse(reader.ReadElementString());
+					break;
+				case "ItemDescription":
+					items[itemIndex].itemDescription = reader.ReadElementString();
+					break;
+				case "SpriteName":
+					items[itemIndex].spriteName = reader.ReadElementString();
+					break;
+				case "ItemSprite":
+					items[itemIndex].itemSprite.spriteName = reader.ReadElementString();
+					break;
+				case "HasItem":
+					items[itemIndex].hasItem = bool.Parse(reader.ReadElementString());
+					break;
+				case "QuestComplete":
+					items[itemIndex].questComplete = bool.Parse (reader.ReadElementString());
+					break;
+				default:
+					break;
 				}
 			}
 		}
@@ -185,6 +190,7 @@ public class PlayerInformation : MonoBehaviour
 
 	public void SavePI()
 	{
+		int i;
 		savePath = "Assets/Resources/Player Data/PlayerInfo.xml";
 		playerPos = player.transform.position;
 		cameraPos = camera.transform.position;
@@ -208,38 +214,45 @@ public class PlayerInformation : MonoBehaviour
 		writer.WriteStartElement("Body");
 
 		//save player and camera position
-		writer.WriteWhitespace("\n\t\t");
-		writer.WriteStartElement("Scene");
-		writer.WriteWhitespace("\n\t\t\t");
-		writer.WriteStartElement("SceneName");
-		writer.WriteWhitespace("\n\t\t\t\t");
-		writer.WriteElementString("PlayerPosX", playerPos.x.ToString());
-		writer.WriteWhitespace("\n\t\t\t\t");
-		writer.WriteElementString("PlayerPosY", playerPos.y.ToString());
-		writer.WriteWhitespace("\n\t\t\t\t");
-		writer.WriteElementString("PlayerPosZ", playerPos.z.ToString());
-		writer.WriteWhitespace("\n\t\t\t\t");
-		writer.WriteElementString("CameraPosX", cameraPos.x.ToString());
-		writer.WriteWhitespace("\n\t\t\t\t");
-		writer.WriteElementString("CameraPosY", cameraPos.y.ToString());
-		writer.WriteWhitespace("\n\t\t\t\t");
-		writer.WriteElementString("CameraPosZ", cameraPos.z.ToString());
-		writer.WriteWhitespace("\n\t\t\t");
-		writer.WriteEndElement();
-		writer.WriteWhitespace("\n\t\t");
-		writer.WriteEndElement();
+		for (i = 0; i < songs.Count; i++)
+		{
+			writer.WriteWhitespace("\n\t\t");
+			writer.WriteStartElement("Scene");
+			writer.WriteWhitespace("\n\t\t\t");
+			writer.WriteStartElement("SceneName", Application.loadedLevelName.ToString ());
+			writer.WriteWhitespace("\n\t\t\t\t");
+			writer.WriteElementString("PlayerPosX", playerPos.x.ToString());
+			writer.WriteWhitespace("\n\t\t\t\t");
+			writer.WriteElementString("PlayerPosY", playerPos.y.ToString());
+			writer.WriteWhitespace("\n\t\t\t\t");
+			writer.WriteElementString("PlayerPosZ", playerPos.z.ToString());
+			writer.WriteWhitespace("\n\t\t\t\t");
+			writer.WriteElementString("CameraPosX", cameraPos.x.ToString());
+			writer.WriteWhitespace("\n\t\t\t\t");
+			writer.WriteElementString("CameraPosY", cameraPos.y.ToString());
+			writer.WriteWhitespace("\n\t\t\t\t");
+			writer.WriteElementString("CameraPosZ", cameraPos.z.ToString());
+			writer.WriteWhitespace("\n\t\t\t");
+			writer.WriteEndElement();
+			writer.WriteWhitespace("\n\t\t");
+			writer.WriteEndElement();
+		}
 
-		/*//save song scores
-		writer.WriteWhitespace("\n\t\t");
-		writer.WriteStartElement ("Song");
-		writer.WriteWhitespace("\n\t\t\t");
-		//writer.WriteElementString("HighScore", .ToString());
-		writer.WriteWhitespace("\n\t\t\t");
-		//writer.WriteElementString("SongCompletion", .ToString());
-		writer.WriteWhitespace("\n\t\t");*/
+		//save song scores
+		for (i = 0; i < songs.Count; i++)
+		{
+			writer.WriteWhitespace("\n\t\t");
+			writer.WriteStartElement ("Song");
+			writer.WriteWhitespace("\n\t\t\t");
+			writer.WriteElementString("SongName", songs[i].ToString());
+			writer.WriteWhitespace("\n\t\t\t");
+			writer.WriteElementString("HighScore", scores[i].ToString());
+			//writer.WriteWhitespace("\n\t\t\t");
+			//writer.WriteElementString("SongCompletion", .ToString());
+			writer.WriteWhitespace("\n\t\t");
+		}
 
-		//save items in inventory
-		for (int i = 0; i < items.Count; i++)
+		for (i = 0; i < items.Count; i++)
 		{
 			if (items[i].hasItem == true) //&& items[i].questComplete == false
 			{
@@ -257,13 +270,13 @@ public class PlayerInformation : MonoBehaviour
 				writer.WriteElementString("ItemSprite", items[i].itemSprite.ToString());
 				writer.WriteWhitespace("\n\t\t\t");
 				writer.WriteElementString("HasItem", items[i].itemSprite.ToString());
-				//writer.WriteWhitespace("\n\t\t\t");
-				//writer.WriteElementString("QuestComplete", items[i].itemSprite.ToString());
+				writer.WriteWhitespace("\n\t\t\t");
+				writer.WriteElementString("QuestComplete", items[i].itemSprite.ToString());
 				writer.WriteWhitespace("\n\t\t");
 				writer.WriteEndElement();
 			}
 			//story progression??
-			/*else if (items[i].hasitem == false && items[i].questComplete == true)
+			else if (items[i].hasItem == false && items[i].questComplete == true)
 			{
 				writer.WriteWhitespace("\n\t\t");
 				writer.WriteStartElement ("Item");
@@ -273,7 +286,7 @@ public class PlayerInformation : MonoBehaviour
 				writer.WriteElementString("QuestComplete", items[i].questComplete.ToString());
 				writer.WriteWhitespace("\n\t\t");
 				writer.WriteEndElement();
-			}*/
+			}
 		}
 
 		writer.WriteWhitespace("\n\t");
