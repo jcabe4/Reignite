@@ -1,130 +1,139 @@
-/********Reignite
- * Script: PlayerInformation.cs
- * Author: Jonathan Robinson
- * Updated: 2.12.2014
- * Description: This script holds all relevant data
- * associated with the player as well as mutator and
- * accessor functions.  This script also loads and saves
- * these values from/into an xml. Based on work from Jonathan Cabe.
- * ******************************************************/
+﻿/**************************************************************************
+ * Inventory tool based on Jon Cabe's MusicSheetBuilder tool.            * 
+ * This script saves and loads items in the game to/from Info.xml        *
+ * Needs Pickup.cs in order to pickup items                              *
+ * Robert R. Rojas                                                       *
+ * Modified by Jonathan Robinson                                         *
+ * 3.5.2014                                                              *
+ *************************************************************************/
 
+using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Xml;
-using System.Xml.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerInformationReignite : MonoBehaviour 
+public class PlayerInformationReignite : MonoBehaviour
 {
-	public bool hasKey = false;
-	public bool hasBook = false;
-	private Inventory inventory; 
-	private GameObject Player;  
+	private string fileName;
+	private string savePath;
+	private string inventory;
+	private Vector2 scrollPos;
+	private string itemName = "Item Name";
+	private string itemDescription = "Item Description";
+	private int itemID = 0;
+	private bool bNewItem = false;
+	private Item item;
+	public List<Item> items = new List<Item>();
 
-	public static PlayerInformationReignite Instance
+	void Awake() //Either loads game file or creates one at start.
 	{
-		get
-		{
-			return instance;
-		}
-	}
-
-	private static PlayerInformationReignite instance;
-	private string savePath = "Assets/Resources/Player Data/Info.xml";
-	private string resourcePath = "Player Data/Info";
-
-	void Awake()
-	{				
-		Player = GameObject.FindGameObjectWithTag("Player");  
-		inventory = Player.GetComponent<Inventory>();  
-		Initialize();
-		instance = this;
-		DontDestroyOnLoad(gameObject);
-
-		if (File.Exists(savePath))
-		{
-			LoadData();
-		}
-		else
-		{			
-			SaveData();
-		}
-	}
-
-
-	public bool GetKey()
-	{
-		return hasKey;
-	}
-
-	public bool GetBook()
-	{
-		return hasBook;
-	}
-
-	public void Initialize()
-	{
-		hasKey = false;
-		hasBook = false;
-	}
-
-	public void SaveData()
-	{
-		Debug.Log ("Saving...");
-
+		item = GameObject.FindGameObjectWithTag ("Player").GetComponent<Item> ();
 		if (File.Exists (savePath))
-		    {
-				File.Delete (savePath);
-			}
-		XmlWriter writer = new XmlTextWriter(savePath, System.Text.Encoding.UTF8);
-
-		writer.WriteStartDocument();
-		writer.WriteWhitespace("\n");
-		writer.WriteStartElement("Root");
-		writer.WriteWhitespace("\n\t");
-		writer.WriteElementString("hasKey", inventory.hasKey.ToString());
-		writer.WriteWhitespace("\n\t");
-		writer.WriteElementString("hasBook", inventory.hasBook.ToString());
-		writer.WriteEndElement();
-		writer.WriteEndDocument ();
-		writer.Close();
-	
-			//XMLFileManager.EncryptFile(savePath);
-	}
-
-	public void LoadData()
-	{
-		Debug.Log("Loading...");
-		if (!File.Exists(savePath))
 		{
-			return;
+			LoadInventory();
 		}
 		else
 		{
-			//XMLFileManager.DecryptFile(savePath);
+			SaveInventory();
+		}
+	}
+
+	public void AddItem(Item newItem) 
+	{
+		items.Add (newItem);
+	}
+
+	public void LoadInventory()
+	{
+		int setIndex = 0;
+		string resourcePath = "Player Data/Info";
+		savePath = "Assets/Resources/Player Data/Info.xml";
+
+		if (!File.Exists(savePath)) 
+		{
+			Debug.Log("cannot find" + savePath);
+			return;
+		} 
+		else 
+		{
+			Debug.Log("Loading " + savePath);
 		}
 
-		TextAsset asset = (TextAsset)Resources.Load (resourcePath);
-		XmlReader reader = XmlReader.Create (new StringReader (asset.text));
+		TextAsset asset = (TextAsset)Resources.Load(resourcePath);
+		XmlReader reader = XmlReader.Create(new StringReader(asset.text));
 
 		while (reader.Read())
 		{
 			if (reader.IsStartElement() && reader.NodeType == XmlNodeType.Element)
 			{
-				switch(reader.Name)
+				switch (reader.Name)
 				{
-					case "hasKey": inventory.hasKey = bool.Parse(reader.ReadElementString());
+					case "Item":
+					{
+						items.Add(new Item());
+						setIndex = items.Count - 1;
 						break;
-					case "hasBook": inventory.hasBook = bool.Parse(reader.ReadElementString());
+					}
+					case "ItemName":
+					{
+						items[setIndex].itemName = reader.ReadElementString();
 						break;
+					}
+					case "ItemID":
+					{
+						items[setIndex].itemID = int.Parse(reader.ReadElementString());
+						break;
+					}
+					case "ItemDescription":
+					{
+						items[setIndex].itemDescription = reader.ReadElementString();
+						break;
+					}
 					default:
+					{
 						break;
+					}
 				}
 			}
 		}
-		reader.Close();
-		
-		//XMLFileManager.EncryptFile(savePath);
+	}
+
+	public void SaveInventory() 
+	{
+		savePath = "Assets/Resources/Player Data/Info.xml";
+		if (File.Exists (savePath)) {
+			Debug.Log ("Overwriting " + savePath);
+			File.Delete (savePath);
+		} else {
+			Debug.Log ("Saving " + savePath);
+		}
+		XmlWriter writer = new XmlTextWriter (savePath, System.Text.Encoding.UTF8);
+		writer.WriteStartDocument ();
+		writer.WriteWhitespace ("\n");
+		writer.WriteStartElement ("Root");
+		writer.WriteWhitespace ("\n\t");
+		writer.WriteStartElement ("Body");
+		for (int i = 0; i < items.Count; i++) {
+			writer.WriteWhitespace ("\n\t\t");
+			writer.WriteStartElement ("Item");
+			writer.WriteWhitespace ("\n\t\t\t");
+			writer.WriteElementString ("ItemName", items [i].itemName.ToString ());
+			writer.WriteWhitespace ("\n\t\t\t");
+			writer.WriteElementString ("ItemID", items [i].itemID.ToString ());
+			writer.WriteWhitespace ("\n\t\t\t");
+			writer.WriteElementString ("ItemDescription", items [i].itemDescription.ToString ());
+			writer.WriteWhitespace ("\n\t\t");
+			writer.WriteElementString ("Contains", items [i].contains.ToString ());
+			writer.WriteWhitespace ("\n\t\t");
+			writer.WriteEndElement ();
+		}
+		writer.WriteWhitespace ("\n\t");
+		writer.WriteEndElement ();
+		writer.WriteWhitespace ("\n");
+		writer.WriteEndElement ();
+		writer.WriteEndDocument ();
+		writer.Close ();
 	}
 }
