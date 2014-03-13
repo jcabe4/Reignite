@@ -16,62 +16,124 @@ using System.Collections;
 public class DialogInteraction : MonoBehaviour 
 {
 	public string sceneToGoTo;
-	public string requiredItem;
-	public Item itemToAdd;
+	public Item itemToAdd; // change to Item later
+	public Item requiredItem; // change to Item later
 	public GameObject[] affectedObjects;
-	public string[] dialog;
 	public bool isInventoryItem;
 	public bool removeOnComplete;
 	public bool requiresItem;
-
+	public bool isConversation;
+	public int conversationIndex = -1;
+	public int quoteIndex;
+	public int postItemGetConversationIndex = -1;
+	public int postItemGetQuoteIndex;
+	
+	private bool dialogComplete = false;
+	
 	private GameObject player;
-	public void Start()
+	private float quoteOffset;
+	
+	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
+		quoteOffset = 6f;
 	}
-
+	
+	void OnEnable()
+	{
+		DialogueController.ConversationEnd += Load;
+	}
+	
+	void OnDisable()
+	{
+		DialogueController.ConversationEnd -= Load;
+		
+	}
+	
+	void Load(int newConversationIndex)
+	{
+		if(newConversationIndex == conversationIndex)
+		{
+			if (sceneToGoTo == "Rhythm Section")
+			{
+				PlayerInformation.Instance.LoadRhythm("WarmUp");
+			}
+			else if (sceneToGoTo != "")
+			{
+				LoadingDisplay.Instance.Load(sceneToGoTo);
+			}
+			End();
+		}
+	}
+	
 	public void BeginInteraction() 
 	{
 		player.GetComponent<MouseInput>().enabled = false;
-
+		
 		HandleDialog();
-		PerformActions();
-		ChooseScene();
-		End();
-	}
-
-	void HandleDialog()
-	{
-		if(dialog.Length != 0)
+		if(dialogComplete)
 		{
-			for(int i = 0; i < dialog.Length; i++)
-			{
-				Debug.Log(dialog[i]);
-			}
+			PerformActions();
+			//ChooseScene();
+		}
+		if(!isConversation)
+		{
+			End();
 		}
 	}
-
+	
+	void HandleDialog()
+	{
+		if(!isConversation)
+		{
+			if(!requiresItem)
+			{
+				if(conversationIndex != -1)
+				{
+					Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+					DialogueController.Instance.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
+				}
+			}
+			else
+			{
+				if(!PlayerInformation.Instance.items.Contains(requiredItem))
+				{
+					if(conversationIndex != -1)
+					{
+						Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+						DialogueController.Instance.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
+					}
+				}
+				else
+				{
+					if(postItemGetConversationIndex != -1)
+					{
+						Vector3 quotePosition = new Vector3(player.transform.position.x, player.transform.position.y + quoteOffset, player.transform.position.z);
+						DialogueController.Instance.SpawnQuoteBubble(Camera.main.WorldToViewportPoint(quotePosition), conversationIndex, quoteIndex);
+						
+					}
+				}
+			}
+		}
+		else
+		{
+			DialogueController.Instance.BeginConversation(conversationIndex);
+		}
+	}
+	
 	void PerformActions()
 	{
 		if(itemToAdd.itemName != "")
 		{
 			PlayerInformation.Instance.AddItem(itemToAdd);
 		}
-
+		
 		if(affectedObjects.Length != 0)
 		{
 			// do something to them
 		}
 	}
-
-	void ChooseScene()
-	{
-		if(sceneToGoTo != "")
-		{
-			Application.LoadLevel(sceneToGoTo);
-		}
-	}
-
+	
 	void End()
 	{
 		player.GetComponent<MouseInput>().enabled = true;

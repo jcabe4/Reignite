@@ -27,10 +27,15 @@ public class ScaleCharacter : MonoBehaviour
 		currentPosition = transform.position;
 		currentScale = transform.localScale;
 	}
-	
+
+	public void changeScaleFactors(float newMax, float newMin)
+	{
+		maxY = newMax;
+		minY = newMin;
+	}
+
 	void Update() 
 	{
-
 		currentPosition = transform.position;
 
 		float s = (maxY - currentPosition.y) / (maxY - minY);

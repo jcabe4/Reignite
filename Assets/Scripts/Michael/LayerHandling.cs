@@ -13,15 +13,17 @@ using System.Collections;
 
 public class LayerHandling : MonoBehaviour 
 {
+	private float transformOffset = 2.5f;
+	
 	private GameObject[] staticObjects;
 	private GameObject[] interactiveObjects;
-
+	
 	void Start() 
 	{
 		staticObjects = GameObject.FindGameObjectsWithTag("Static Object");
 		interactiveObjects = GameObject.FindGameObjectsWithTag("Interactive Object");
 	}
-
+	
 	void Update() 
 	{
 		foreach(GameObject so in staticObjects)
@@ -34,25 +36,30 @@ public class LayerHandling : MonoBehaviour
 					{
 						if(io)
 						{
-							if(so.collider.bounds.Contains (io.collider.bounds.min))
+							//if(so.collider2D.OverlapPoint (io.GetComponent<BoxCollider2D>().center))
+							if(transform.position.y >= io.transform.position.y)
 							{
-								io.renderer.sortingLayerName = "Foreground";
+								io.renderer.sortingLayerName = "Interactive Foreground";
 							}
 						}
 					}
 					so.renderer.sortingLayerName = "Foreground";
-
+					
 				}
-
+				
 				else
 				{
 					foreach(GameObject io in interactiveObjects)
 					{
 						if(io)
 						{
-							if(so.collider.bounds.Contains (io.collider.bounds.min))
+							if(transform.position.y + transformOffset <= io.transform.position.y)
 							{
-								io.renderer.sortingLayerName = "Background";
+								io.renderer.sortingLayerName = "Interactive Background";
+							}
+							else
+							{
+								io.renderer.sortingLayerName = "Above Static Foreground";
 							}
 						}
 					}
