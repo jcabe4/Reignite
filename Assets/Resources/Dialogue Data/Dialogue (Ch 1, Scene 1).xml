@@ -10,9 +10,9 @@
 		<Conversation index="1">
 			<Quote quoteIndex="0" speaker="Therese" statement="That looks incredibly unsafe...">
 			</Quote>
-			<Quote quoteIndex="1" speaker="Therese" statement="It's too dark. I can't see anything.">
+			<Quote quoteIndex="1" speaker="Therese" statement="It's too dark. I &#xA;can't see anything.">
 			</Quote>
-			<Quote quoteIndex="2" speaker="Therese" statement="There's a candle here. Might be useful.">
+			<Quote quoteIndex="2" speaker="Therese" statement="There's a candle here. &#xA;Might be useful.">
 			</Quote>
 		</Conversation>
 		<Conversation index="2">

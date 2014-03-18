@@ -1,0 +1,72 @@
+fileFormatVersion: 2
+guid: 9e1f86af49091834c935ad3e9c013873
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 54
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Railing
+      rect:
+        serializedVersion: 2
+        x: 2670
+        y: 2336
+        width: 722
+        height: 161
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: Left Side
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 1141
+        width: 2072
+        height: 1080
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: Right Side
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 1
+        width: 2072
+        height: 1080
+      alignment: 7
+      pivot: {x: .5, y: 0}
+  spritePackingTag: 
+  userData: 
