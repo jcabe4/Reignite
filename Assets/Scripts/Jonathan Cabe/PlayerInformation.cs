@@ -115,6 +115,19 @@ public class PlayerInformation : MonoBehaviour
 		}
 	}
 
+	public bool HasItem(Item requiredItem)
+	{
+		for (int i = 0; i < items.Count; i++)
+		{
+			if (items[i].itemName == requiredItem.itemName)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public void LoadRhythm(string songName)
 	{
 		if (!bToRhythm)

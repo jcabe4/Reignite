@@ -12,11 +12,51 @@
 			</Quote>
 			<Quote quoteIndex="1" speaker="Therese" statement="It's too dark. I can't see anything.">
 			</Quote>
-			<Quote quoteIndex="2" speaker="Therese" statement="There's a candle here. Might be useful.">
+			<Quote quoteIndex="2" speaker="Therese" statement="There's a candle here. &#xA;It might be useful to &#xA;take it with me.">
+			</Quote>
+			<Quote quoteIndex="3" speaker="Therese" statement="The door's locked.">
+			</Quote>
+			<Quote quoteIndex="4" speaker="Therese" statement="It's the book Oliver was reading.&#xA;The Iliad.&#xA;">
+			</Quote>
+			<Quote quoteIndex="5" speaker="Therese" statement="This should be the key to&#xA;that upstairs study room.">
 			</Quote>
 		</Conversation>
 		<Conversation index="2">
-			<Quote quoteIndex="0" speaker="Therese" statement="My violin! This is a test so I'm just going to start playing it.">
+			<Quote quoteIndex="0" speaker="Therese" statement="My violin's here? What's it doing out of the case? Oh well, no matter. Might as well play it for a bit since no one's around.">
+			</Quote>
+		</Conversation>
+		<Conversation index="3">
+			<Quote quoteIndex="0" speaker="Therese" statement="Oliver? Oh gosh, it is you! Are you okay?">
+			</Quote>
+			<Quote quoteIndex="1" speaker="Oliver" statement="...">
+			</Quote>
+			<Quote quoteIndex="2" speaker="Therese" statement="Oliver? Is something wrong?">
+			</Quote>
+			<Quote quoteIndex="3" speaker="Oliver" statement="... Oh. Therese. Hi.">
+			</Quote>
+		</Conversation>
+		<Conversation index="4">
+			<Quote quoteIndex="0" speaker="Therese" statement="I found the book you were reading. It's The Iliad, remember?">
+			</Quote>
+			<Quote quoteIndex="1" speaker="Therese" statement="Troy, a horse, big guy with a bad ankle...">
+			</Quote>
+			<Quote quoteIndex="2" speaker="Oliver" statement="His heel, Therese. Achilles' heel was weak because that's how he was dipped in the river Styx. Held by his heel.">
+			</Quote>
+			<Quote quoteIndex="3" speaker="Oliver" statement="Hero of the Greeks, slayer of Hector, whose quest for vengeance could not be stopped by the gods themselves.">
+			</Quote>
+			<Quote quoteIndex="4" speaker="Oliver" statement="A man, but more than a man. Rage, fury, wrath incarnate. A hero, some might say, but with rather anti-heroic methods...">
+			</Quote>
+			<Quote quoteIndex="5" speaker="Oliver" statement="Sorry. That was a bit of a rant. Thank you for finding me, Therese. What's going on? Where am I?">
+			</Quote>
+			<Quote quoteIndex="6" speaker="Therese" statement="In the library, your usual study room. It's dark outside, though. There's no lights and the switches aren't working...">
+			</Quote>
+			<Quote quoteIndex="7" speaker="Oliver" statement="That candle you have there, how did you light it?">
+			</Quote>
+			<Quote quoteIndex="8" speaker="Therese" statement="Oh, um... By playing my violin, I guess. It just sort of happened, I don't know why...">
+			</Quote>
+			<Quote quoteIndex="9" speaker="Oliver" statement="Can we try something? Play a song with me. That Mozart piece we learned last year.">
+			</Quote>
+			<Quote quoteIndex="10" speaker="Therese" statement="I don't think this is the time for music, but okay. Count us in.">
 			</Quote>
 		</Conversation>
 	</Body>

@@ -12,6 +12,7 @@ public class InGameElements : MonoBehaviour
 	public UIPanel mainDialoguePanel;
 	public GameObject inventoryBar;
 	public UISprite[] itemSprites;
+	public int activeItemIndex = -1;
 
 	public static InGameElements Instance
 	{
@@ -26,7 +27,7 @@ public class InGameElements : MonoBehaviour
 		}
 	}
 	
-	private int activeItemIndex = -1;
+
 	private bool bItemSelected = false;
 
 	private static InGameElements instance;
@@ -41,6 +42,7 @@ public class InGameElements : MonoBehaviour
 	{
 		pausePanel.alpha = 0f;
 		mainDialoguePanel.alpha = 0f;
+		Invoke("ToggleInventory", .01f);
 	}
 
 	void Update()

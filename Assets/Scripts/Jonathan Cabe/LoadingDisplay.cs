@@ -49,7 +49,7 @@ public class LoadingDisplay : MonoBehaviour
 		window.alpha = 0f;
 		instance = this;
 
-		Load (nextScene);
+		//Load (0);
 	}
 	
 	IEnumerator ChangeScenes()

@@ -3,13 +3,19 @@
 	<Body>
 		<bDisplayTutorial>False</bDisplayTutorial>
 		<CurrentScene>Library 2F</CurrentScene>
-		<PlayerPos X="-4.410507" Y="3.409337" Z="-1">
-		<CameraPos X="0" Y="10" Z="-10" />
+		<PlayerPos X="36.91786" Y="6.018146" Z="-1">
+		<CameraPos X="42" Y="10" Z="-10" />
 		<Item>
 			<ItemName>Candle</ItemName>
 			<ItemID>0</ItemID>
-			<ItemDescription>It is a candle</ItemDescription>
+			<ItemDescription>Therese's Candle.</ItemDescription>
 			<SpriteName>Item - Candle</SpriteName>
+		</Item>
+		<Item>
+			<ItemName>Study Room Key</ItemName>
+			<ItemID>2</ItemID>
+			<ItemDescription>The key to the second floor study room.</ItemDescription>
+			<SpriteName>Item - Key</SpriteName>
 		</Item>
 	</PlayerPos>
 </Body></Root>

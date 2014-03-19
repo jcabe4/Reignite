@@ -40,7 +40,7 @@ public class DialogueController : MonoBehaviour
 	private int currentConversationIndex = 0;
 	private float timer = 0f;
 	private float quoteLifespan = 1f;
-	private float textSpeed = 5f;
+	private float textSpeed = 15f;
 	private float speedResetValue = 0f;
 	private bool bDisplayText = false;
 	private bool bTextFinished = false;

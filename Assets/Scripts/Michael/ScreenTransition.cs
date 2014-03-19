@@ -17,6 +17,8 @@ public class ScreenTransition : MonoBehaviour
 	public Transform newPlayerLocation;
 	public GameObject curtain;
 	public Item requiredItem;
+	public bool requiresItem;
+	public bool removeItemAfterUse;
 	public bool changeScale = false;
 	public float nextRoomMaxScale;
 	public float nextRoomMinScale;
@@ -75,6 +77,11 @@ public class ScreenTransition : MonoBehaviour
 
 	void OnTriggerEnter2D()
 	{
+		MoveToRoom();
+	}
+
+	public void MoveToRoom()
+	{
 		if(requiredItem.itemName == "")
 		{
 			fadeOut = true;
@@ -82,7 +89,7 @@ public class ScreenTransition : MonoBehaviour
 		}
 		else 
 		{
-			if(PlayerInformation.Instance.items.Contains(requiredItem))
+			if(PlayerInformation.Instance.HasItem(requiredItem))
 			{
 				fadeOut = true;
 				player.GetComponent<MouseInput>().enabled = false;

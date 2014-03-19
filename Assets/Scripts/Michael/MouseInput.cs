@@ -20,7 +20,7 @@ public class MouseInput : MonoBehaviour
 	// The ignore mask makes it so our raycast ignores the Player sprite.
 	private LayerMask ignoreMask = ~(1 << 2);
 	private SpriteRenderer spriteRenderer;
-
+	
 	private Ray towards;
 
 	void Start() 
@@ -80,12 +80,29 @@ public class MouseInput : MonoBehaviour
 			{
 				// Since we are raycasting through everything, if we find an obstacle anywhere, we
 				// don't want to move through it.
-				if(hits[count].collider.gameObject.tag == "Obstacle")
+				
+				if(InGameElements.Instance.activeItemIndex != -1)
 				{
-					futurePosition = transform.position;
+					if(hits[count].collider.gameObject.GetComponent<UseItem>())
+					{
+						hits[count].collider.gameObject.GetComponent<UseItem>().ItemUsable();
+					}
+
+					else if(hits[count].collider.gameObject.tag == "Environment")
+					{
+						if(transform.position.x > futurePosition.x)
+						{
+							spriteRenderer.sprite = walkLeftFrame;
+						}
+						else if(transform.position.x < futurePosition.x)
+						{
+							spriteRenderer.sprite = walkRightFrame;
+						}
+						
+						transform.position = Vector3.MoveTowards(transform.position, futurePosition, moveSpeed);
+					}
 				}
 
-				// But if we don't find one, we should be able to move towards where we wanted to go.
 				else if(hits[count].collider.gameObject.tag == "Environment")
 				{
 					if(transform.position.x > futurePosition.x)
@@ -96,7 +113,7 @@ public class MouseInput : MonoBehaviour
 					{
 						spriteRenderer.sprite = walkRightFrame;
 					}
-
+					
 					transform.position = Vector3.MoveTowards(transform.position, futurePosition, moveSpeed);
 				}
 			}

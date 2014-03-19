@@ -16,10 +16,12 @@ using System.Collections;
 public class DialogInteraction : MonoBehaviour 
 {
 	public string sceneToGoTo;
+	public string songName;
 	public Item itemToAdd; // change to Item later
 	public Item requiredItem; // change to Item later
 	public GameObject[] affectedObjects;
 	public bool isInventoryItem;
+	public bool removeItemAfterUse;
 	public bool removeOnComplete;
 	public bool requiresItem;
 	public bool isConversation;
@@ -54,18 +56,36 @@ public class DialogInteraction : MonoBehaviour
 	{
 		if(newConversationIndex == conversationIndex)
 		{
-			if (sceneToGoTo == "Rhythm Section")
+			if(!requiresItem)
 			{
-				PlayerInformation.Instance.LoadRhythm("WarmUp");
+				if (sceneToGoTo == "Rhythm Section")
+				{
+					PlayerInformation.Instance.LoadRhythm(songName);
+				}
+				else if (sceneToGoTo != "")
+				{
+					LoadingDisplay.Instance.Load(sceneToGoTo);
+				}
 			}
-			else if (sceneToGoTo != "")
-			{
-				LoadingDisplay.Instance.Load(sceneToGoTo);
-			}
-			End();
 		}
+
+		else if(newConversationIndex == postItemGetConversationIndex)
+		{
+			if(requiresItem)
+			{
+				if (sceneToGoTo == "Rhythm Section")
+				{
+					PlayerInformation.Instance.LoadRhythm(songName);
+				}
+				else if (sceneToGoTo != "")
+				{
+					LoadingDisplay.Instance.Load(sceneToGoTo);
+				}
+			}
+		}
+
+		End();
 	}
-	
 	public void BeginInteraction() 
 	{
 		player.GetComponent<MouseInput>().enabled = false;
@@ -82,7 +102,7 @@ public class DialogInteraction : MonoBehaviour
 		}
 	}
 	
-	void HandleDialog()
+	public void HandleDialog()
 	{
 		if(!isConversation)
 		{
@@ -96,7 +116,7 @@ public class DialogInteraction : MonoBehaviour
 			}
 			else
 			{
-				if(!PlayerInformation.Instance.items.Contains(requiredItem))
+				if(!PlayerInformation.Instance.HasItem(requiredItem))
 				{
 					if(conversationIndex != -1)
 					{
@@ -117,11 +137,18 @@ public class DialogInteraction : MonoBehaviour
 		}
 		else
 		{
-			DialogueController.Instance.BeginConversation(conversationIndex);
+			if(!PlayerInformation.Instance.HasItem(requiredItem))
+			{
+				DialogueController.Instance.BeginConversation(conversationIndex);
+			}
+			else
+			{
+				DialogueController.Instance.BeginConversation(postItemGetConversationIndex);
+			}
 		}
 	}
 	
-	void PerformActions()
+	public void PerformActions()
 	{
 		if(itemToAdd.itemName != "")
 		{
